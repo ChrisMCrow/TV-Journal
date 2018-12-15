@@ -2,9 +2,9 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import SignIn from './SignIn';
-import Home from './HomePage';
-import Friends from './FriendsPage';
-import Shows from './ShowsPage';
+import Home from './home/HomePage';
+import Friends from './friends/FriendsPage';
+import Shows from './shows/ShowsPage';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         }
       `}</style>
       <Navbar/>
-      <div className='container'>
+      <div>
         <Switch>
           <Route exact path='/' component={SignIn} />
           <Route path='/home' component={Home} />

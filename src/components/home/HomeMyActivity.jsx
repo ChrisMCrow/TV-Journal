@@ -1,6 +1,6 @@
 import React from 'react';
-import Daredevil from './../assets/daredevil.jpg';
-import ShowList from './ShowList';
+import Daredevil from './../../assets/daredevil.jpg';
+import ShowList from './../common/ShowList';
 
 function HomeMyActivity() {
 
@@ -32,7 +32,9 @@ function HomeMyActivity() {
   }
 
   return(
-    <div>
+    <div className='section-container'>
+      <style jsx>{`
+      `}</style>
       <h1>My Activity</h1>
       <h2>Current Shows</h2>
       <ShowList shows={tempProps.watchingNow} />

@@ -2,7 +2,7 @@ import React from 'react';
 
 function HomeTrends() {
   return(
-    <div>
+    <div className='section-container'>
       <h1>HomeTrends</h1>
     </div>
   );

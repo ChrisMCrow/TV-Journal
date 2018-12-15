@@ -5,7 +5,7 @@ import HomeTrends from './HomeTrends';
 
 function HomePage() {
   return(
-    <div>
+    <div className='page'>
       <style jsx>{`
 
       `}</style>
