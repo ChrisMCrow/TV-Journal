@@ -1,13 +1,15 @@
 import * as c from './../constants';
 
+const moviedb_api_key = '4ecfbbe47d132ddcc6b98ce77d71b265';
+
 export function getPopularShows() {
-  console.log(process.env.moviedb_api_key);
+  console.log(moviedb_api_key);
   return function(dispatch) {
-    return fetch(`https://api.themoviedb.org/3/trending/tv/week?api_key=${process.env.moviedb_api_key}`).then(
+    return fetch(`https://api.themoviedb.org/3/trending/tv/week?api_key=${moviedb_api_key}`).then(
       response => response.json(),
       error => console.log('An error occurred.', error)
     ).then(function(json) {
-      dispatch(populateList(json.body.results))
+      dispatch(populateList(json.results))
     });
   }
 }

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 // import Daredevil from './../../assets/daredevil.jpg';
 
 function ShowComponent(props) {
-  console.log('ShowComponent: ', props)
   const { title, img } = props.show;
   return(
     <div className='show-container'>

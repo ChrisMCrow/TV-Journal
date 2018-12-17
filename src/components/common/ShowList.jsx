@@ -16,8 +16,8 @@ function ShowList(props) {
         }
       `}</style>
       {Object.values(props.shows).map((show) => (
-        <span className='show-component'>
-          <ShowComponent key={v4()} show={show} />
+        <span className='show-component' key={v4()}>
+          <ShowComponent show={show} />
         </span>
       ))}
     </div>
