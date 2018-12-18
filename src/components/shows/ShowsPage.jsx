@@ -24,11 +24,11 @@ function ShowsPage(props) {
         </div>
         <div className='col-md-9'>
           <ShowScroll dispatch={props.dispatch} media={props.media} />
-          <h3 id='genre-title'></h3>
-          {props.media.selectedGenre ? (
-            <ShowList list={props.media.selectedGenre} />
+          <h3 id='genre-title'>Trending</h3>
+          {props.media.selectedList ? (
+            <ShowList list={props.media.selectedList} />
           ) : (
-              <ShowList list={props.media.trending} />
+            <ShowList list={props.media.trending} />
           )}
           <ShowScroll dispatch={props.dispatch} media={props.media} />
         </div>

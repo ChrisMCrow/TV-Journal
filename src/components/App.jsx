@@ -10,9 +10,6 @@ import { getGenres, getPopularShows } from '../actions';
 import PropTypes from 'prop-types';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   
   componentDidMount() {
     this.props.dispatch(getPopularShows());

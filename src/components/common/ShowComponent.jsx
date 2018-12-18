@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import fallback from './../../assets/fallback.jpeg';
 
 function ShowComponent(props) {
   const { name, poster_path } = props.show;
@@ -15,7 +16,7 @@ function ShowComponent(props) {
           min-width: 70px;
         }
       `}</style>
-      <img className='poster' src={img} alt={name} />
+      <img className='poster' src={img} alt='POSTER' />
       <p>{name}</p>
     </div>
   );

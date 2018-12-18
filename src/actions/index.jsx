@@ -50,3 +50,20 @@ export function discoverGenre(id, pageNumber = 1) {
     }
   }
 }
+
+export function searchTV(query, pageNumber=1) {
+  return async function(dispatch) {
+    try {
+      const response = await fetch(`${c.API_URL}/search/tv${moviedb_api_key}&query=${query}&page=${pageNumber}`);
+      const json = await response.json();
+      dispatch({
+        type: c.SEARCH_TV,
+        data: json.results,
+        query
+      });
+    } 
+    catch (error) {
+      console.log('An error occurred', error);
+    }
+  }
+}
