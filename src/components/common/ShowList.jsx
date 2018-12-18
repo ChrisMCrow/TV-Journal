@@ -12,7 +12,8 @@ function ShowList(props) {
         }
         .show-component {
           float: left;
-          margin: 10px;
+          height: 250px;
+          margin-left: 10px;
         }
       `}</style>
       {props.list ? (

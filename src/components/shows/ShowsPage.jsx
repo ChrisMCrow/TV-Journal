@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ShowsGenre from './ShowsGenre';
+import ShowList from './../common/ShowList';
+import ShowScroll from './ShowsScroll';
 
 function ShowsPage(props) {
   return (
@@ -11,7 +13,8 @@ function ShowsPage(props) {
           <ShowsGenre genres={props.media.genres} dispatch={props.dispatch} />
         </div>
         <div className='col-md-9'>
-          {/* <ShowList list={props.media.selectedGenre} /> */}
+          <ShowScroll dispatch={props.dispatch} />
+          <ShowList list={props.media.selectedGenre} />
         </div>
       </div>
     </div>
@@ -21,7 +24,6 @@ function ShowsPage(props) {
 ShowsPage.propTypes = {
   media: PropTypes.object,
   dispatch: PropTypes.func
-  // selectedGenre: PropTypes.object
 }
 
 export default ShowsPage;

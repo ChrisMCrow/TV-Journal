@@ -8,7 +8,7 @@ function ShowComponent(props) {
     <div className='show-container'>
       <style jsx>{`
         .show-container {
-          width: 100px;
+          width: 130px;
           text-align: center;
         }
         .poster {
