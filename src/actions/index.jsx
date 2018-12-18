@@ -37,11 +37,12 @@ export function getGenres() {
 export function discoverGenre(id) {
   return async function(dispatch) {
     try {
-      const response = await fetch(`${api_url}/discover/tv${moviedb_api_key}&language=en-US&sort_by=popularity.desc&page=1,2,3&with_genres=${id}`);
+      const response = await fetch(`${api_url}/discover/tv${moviedb_api_key}&language=en-US&sort_by=popularity.desc&page=1&with_genres=${id}`);
       const json = await response.json();
       dispatch({
         type: c.DISCOVER_GENRE,
-        data: json.results
+        results: json.results, 
+        page: json.page
       });
     }
     catch (error) {
@@ -49,3 +50,4 @@ export function discoverGenre(id) {
     }
   }
 }
+

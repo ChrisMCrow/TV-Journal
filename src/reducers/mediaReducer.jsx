@@ -10,7 +10,8 @@ const mediaReducer = (state = {}, action) => {
     newState.genres = action.data;
     return newState;
   case c.DISCOVER_GENRE:
-    newState.selectedGenre = action.data;
+    newState.selectedGenre = action.results;
+    newState.selectedGenrePage = action.page;
     return newState;
   default:
     return state;

@@ -4,7 +4,6 @@ import * as actions from './../../actions';
 import v4 from 'uuid';
 
 function ShowsGenre(props) {
-
   function handleGenreSelection(genreId) {
     props.dispatch(actions.discoverGenre(genreId));
   }

@@ -13,7 +13,7 @@ function ShowsPage(props) {
           <ShowsGenre genres={props.media.genres} dispatch={props.dispatch} />
         </div>
         <div className='col-md-9'>
-          <ShowScroll dispatch={props.dispatch} />
+          <ShowScroll dispatch={props.dispatch} pageNumber={props.media.selectedGenre} />
           <ShowList list={props.media.selectedGenre} />
         </div>
       </div>

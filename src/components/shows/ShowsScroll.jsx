@@ -1,12 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as c from './../../constants';
+import * as actions from './../../actions';
 
 function ShowsScroll(props) {
+
+  function handlePageTurn(direction) {
+    // props.dispatch(actions.   );
+  }
+
   return (
     <div>
-      <a href="https://icons8.com/icon/26146/back-to-filled">Back To Filled icon by Icons8</a>
+      <style jsx>{`
+        img: {
 
+        }
+      `}</style>
+      <img onClick={() => handlePageTurn(-1)} src={c.LEFT_ARROW} alt='left arrow' />
+      <img onClick={() => handlePageTurn(1)} src={c.RIGHT_ARROW} alt='right arrow' />
     </div>
   );
 }
