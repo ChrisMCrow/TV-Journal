@@ -1,19 +1,32 @@
 import * as c from './../constants';
 
-const moviedb_api_key = '4ecfbbe47d132ddcc6b98ce77d71b265';
+const api_url = 'https://api.themoviedb.org/3';
+const moviedb_api_key = '?api_key=4ecfbbe47d132ddcc6b98ce77d71b265';
 
 export function getPopularShows() {
   return function(dispatch) {
-    return fetch(`https://api.themoviedb.org/3/trending/tv/week?api_key=${moviedb_api_key}`).then(
+    return fetch(`${api_url}/trending/tv/week${moviedb_api_key}`).then(
       response => response.json(),
       error => console.log('An error occurred.', error)
     ).then(function(json) {
-      dispatch(populateList(json.results))
+      dispatch({
+        type: c.GET_TRENDING,
+        data: json.results
+      })
     });
   }
 }
 
-export const populateList = (responseArr) => ({
-  type: c.POPULATE_LIST,
-  responseArr
-})
+export function getGenres() {
+  return function(dispatch) {
+    return fetch(`${api_url}/genre/tv/list${moviedb_api_key}`).then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    ).then(function(json) {
+      dispatch({
+        type: c.GET_GENRES,
+        data: json.genres
+      })
+    });
+  }
+}

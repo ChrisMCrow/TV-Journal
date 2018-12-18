@@ -4,15 +4,17 @@ import Navbar from './Navbar';
 import SignIn from './SignIn';
 import HomePage from './home/HomePage';
 import Friends from './friends/FriendsPage';
-import Shows from './shows/ShowsPage';
+import ShowsPage from './shows/ShowsPage';
 import { connect } from 'react-redux';
-import { populateList, getPopularShows } from '../actions';
+import { getGenres, getPopularShows } from '../actions';
 import PropTypes from 'prop-types';
+import { store } from './../index';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     props.dispatch(getPopularShows());
+    props.dispatch(getGenres());
   }
 
   render() {    
@@ -33,13 +35,18 @@ class App extends React.Component {
               render={() => <HomePage media={this.props.media} />} 
             />
             <Route path='/friends' component={Friends} />
-            <Route path='/shows' component={Shows} />
+            <Route 
+              path='/shows' 
+              render={() => <ShowsPage media={this.props.media} />} 
+            />
           </Switch>
         </div>
       </div>
     );
   }
 }
+
+store.subscribe(getGenres);
 
 const mapStateToProps = state => {
   return {

@@ -11,7 +11,7 @@ import middlewareLogger from './middleware/middlewareLogger';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers';
 
-const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMiddleware));
+export const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMiddleware));
 
 ReactDOM.render(
   <HashRouter>
