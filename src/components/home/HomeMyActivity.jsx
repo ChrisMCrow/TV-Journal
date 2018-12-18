@@ -9,9 +9,9 @@ function HomeMyActivity(props) {
       `}</style>
       <h1>My Activity</h1>
       <h2>Current Shows</h2>
-      <ShowList list={props.media} />
+      <ShowList list={props.media.trending} />
       <h2>Shows I want to watch</h2>
-      <ShowList list={props.media} />
+      <ShowList list={props.media.trending} />
     </div>
   );
 }

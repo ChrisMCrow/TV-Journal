@@ -3,17 +3,25 @@ import PropTypes from 'prop-types';
 import ShowsGenre from './ShowsGenre';
 
 function ShowsPage(props) {
-  console.log('ShowsPage props', props);
-  return(
+  return (
     <div>
       <h1>ShowsPage</h1>
-      <ShowsGenre genres={props.media.genres} />
+      <div className='row'>
+        <div className='col-md-3'>
+          <ShowsGenre genres={props.media.genres} dispatch={props.dispatch} />
+        </div>
+        <div className='col-md-9'>
+          {/* <ShowList list={props.media.selectedGenre} /> */}
+        </div>
+      </div>
     </div>
   );
 }
 
 ShowsPage.propTypes = {
-  media: PropTypes.object
+  media: PropTypes.object,
+  dispatch: PropTypes.func
+  // selectedGenre: PropTypes.object
 }
 
 export default ShowsPage;

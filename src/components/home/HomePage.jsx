@@ -11,13 +11,13 @@ function HomePage(props) {
 
       `}</style>
       <div className='row'>
-        <div className='col-4'>
+        <div className='col'>
           <HomeMyActivity media={props.media} />
         </div>
-        <div className='col-4'>
+        <div className='col'>
           <HomeFeed />
         </div>
-        <div className='col-4'>
+        <div className='col'>
           <HomeTrends trending={props.media.trending} />
         </div>
       </div>

@@ -13,8 +13,9 @@ code {
     monospace;
 }
 
-.page {
-  margin: 10px 50px;
+#htmlBody {
+  color: white;
+  background-color: black;
 }
 
 .section-container {

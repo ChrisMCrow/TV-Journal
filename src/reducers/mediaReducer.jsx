@@ -7,7 +7,10 @@ const mediaReducer = (state = {}, action) => {
     newState.trending = action.data;
     return newState;
   case c.GET_GENRES:
-    newState.genres = action.data
+    newState.genres = action.data;
+    return newState;
+  case c.DISCOVER_GENRE:
+    newState.selectedGenre = action.data;
     return newState;
   default:
     return state;

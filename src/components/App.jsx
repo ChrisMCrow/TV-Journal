@@ -8,26 +8,22 @@ import ShowsPage from './shows/ShowsPage';
 import { connect } from 'react-redux';
 import { getGenres, getPopularShows } from '../actions';
 import PropTypes from 'prop-types';
-import { store } from './../index';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    props.dispatch(getPopularShows());
-    props.dispatch(getGenres());
+  }
+  
+  componentDidMount() {
+    this.props.dispatch(getPopularShows());
+    this.props.dispatch(getGenres());
   }
 
   render() {    
     return (
       <div>
-        <style global jsx>{`
-          body {
-            color: white;
-            background-color: black;
-          }
-        `}</style>
         <Navbar/>
-        <div>
+        <div className='container'>
           <Switch>
             <Route exact path='/' component={SignIn} />
             <Route
@@ -37,7 +33,7 @@ class App extends React.Component {
             <Route path='/friends' component={Friends} />
             <Route 
               path='/shows' 
-              render={() => <ShowsPage media={this.props.media} />} 
+              render={() => <ShowsPage media={this.props.media} dispatch={this.props.dispatch} />} 
             />
           </Switch>
         </div>
@@ -46,7 +42,6 @@ class App extends React.Component {
   }
 }
 
-store.subscribe(getGenres);
 
 const mapStateToProps = state => {
   return {
