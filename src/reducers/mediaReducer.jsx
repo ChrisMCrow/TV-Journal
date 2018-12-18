@@ -2,9 +2,11 @@ import * as c from './../constants';
 
 const mediaReducer = (state = {}, action) => {
   let newState;
-  switch (action.types) {
+  switch (action.type) {
   case c.POPULATE_LIST:
-    newState = Object.assign({}, state, action.responseArr);
+    console.log('reducer activated')
+    newState = Object.assign({}, state);
+    newState.trending = action.responseArr;
     return newState;
   default:
     return state;

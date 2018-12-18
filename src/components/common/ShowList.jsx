@@ -4,6 +4,7 @@ import ShowComponent from './ShowComponent';
 import v4 from 'uuid';
 
 function ShowList(props) {
+  console.log('ShowList', props);
   return(
     <div className='showlist-container'>
       <style jsx>{`
@@ -15,7 +16,7 @@ function ShowList(props) {
           margin: 10px;
         }
       `}</style>
-      {Object.values(props.shows).map((show) => (
+      {Object.values(props.list).map((show) => (
         <span className='show-component' key={v4()}>
           <ShowComponent show={show} />
         </span>
@@ -25,7 +26,7 @@ function ShowList(props) {
 }
 
 ShowList.propTypes = {
-  shows: PropTypes.object
+  list: PropTypes.object
 }
 
 export default ShowList;

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import Daredevil from './../../assets/daredevil.jpg';
 
 function ShowComponent(props) {
-  const { title, img } = props.show;
+  const { name, poster_path } = props.show;
+  let img = `https://image.tmdb.org/t/p/w500/${poster_path}`;
   return(
     <div className='show-container'>
       <style jsx>{`
@@ -15,8 +15,8 @@ function ShowComponent(props) {
           height: 150px;
         }
       `}</style>
-      <img className='poster' src={img} alt={title} />
-      <p>{title}</p>
+      <img className='poster' src={img} alt={name} />
+      <p>{name}</p>
     </div>
   );
 }
