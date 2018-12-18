@@ -4,20 +4,34 @@ import * as c from './../../constants';
 import * as actions from './../../actions';
 
 function ShowsScroll(props) {
-
+  console.log('ShowsScroll props', props);
   function handlePageTurn(direction) {
-    // props.dispatch(actions.   );
+    let newPage = props.media.selectedGenrePage + direction;
+    if (newPage > 0) {
+      props.dispatch(actions.discoverGenre(props.media.selectedGenreId, newPage));
+    }
   }
 
   return (
-    <div>
+    <div className='button-wrapper'>
       <style jsx>{`
-        img: {
-
+        .button-wrapper {
+          text-align: center;
+          margin-bottom: -50px;
+        }
+        .button-wrapper img {
+          cursor: pointer;
         }
       `}</style>
-      <img onClick={() => handlePageTurn(-1)} src={c.LEFT_ARROW} alt='left arrow' />
-      <img onClick={() => handlePageTurn(1)} src={c.RIGHT_ARROW} alt='right arrow' />
+      {props.media.selectedGenreId ? (
+        <div>
+          <img onClick={() => handlePageTurn(-1)} src={c.LEFT_ARROW} alt='left arrow' />
+          <img onClick={() => handlePageTurn(1)} src={c.RIGHT_ARROW} alt='right arrow' />
+          <p className='text-muted'>{props.media.selectedGenrePage}</p>
+        </div>
+      ) : (
+        null
+      )}
     </div>
   );
 }

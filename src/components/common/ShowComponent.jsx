@@ -8,11 +8,11 @@ function ShowComponent(props) {
     <div className='show-container'>
       <style jsx>{`
         .show-container {
-          width: 130px;
           text-align: center;
         }
         .poster {
-          height: 150px;
+          width: 80%;
+          min-width: 70px;
         }
       `}</style>
       <img className='poster' src={img} alt={name} />

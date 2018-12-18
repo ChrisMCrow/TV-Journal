@@ -4,7 +4,6 @@ import ShowComponent from './ShowComponent';
 import v4 from 'uuid';
 
 function ShowList(props) {
-  console.log('props' , props)
   return(
     <div className='showlist-container'>
       <style jsx>{`
@@ -13,8 +12,10 @@ function ShowList(props) {
         }
         .show-component {
           float: left;
-          height: 250px;
-          margin-left: 10px;
+          min-width: 80px;
+          width: 16%;
+          margin: 10px 2%;
+          height: 215px;
         }
       `}</style>
       {props.list ? (

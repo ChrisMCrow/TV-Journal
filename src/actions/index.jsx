@@ -1,11 +1,10 @@
 import * as c from './../constants';
-const api_url = 'https://api.themoviedb.org/3';
 const moviedb_api_key = '?api_key=4ecfbbe47d132ddcc6b98ce77d71b265';
 
 export function getPopularShows() {
   return async function(dispatch) {
     try {
-      const response = await fetch(`${api_url}/trending/tv/week${moviedb_api_key}`);
+      const response = await fetch(`${c.API_URL}/trending/tv/week${moviedb_api_key}`);
       const json = await response.json();
       dispatch({
         type: c.GET_TRENDING,
@@ -21,7 +20,7 @@ export function getPopularShows() {
 export function getGenres() {
   return async function(dispatch) {
     try {
-      const response = await fetch(`${api_url}/genre/tv/list${moviedb_api_key}`);
+      const response = await fetch(`${c.API_URL}/genre/tv/list${moviedb_api_key}`);
       const json = await response.json();
       dispatch({
         type: c.GET_GENRES,
@@ -34,13 +33,14 @@ export function getGenres() {
   }
 }
 
-export function discoverGenre(id) {
+export function discoverGenre(id, pageNumber = 1) {
   return async function(dispatch) {
     try {
-      const response = await fetch(`${api_url}/discover/tv${moviedb_api_key}&language=en-US&sort_by=popularity.desc&page=1&with_genres=${id}`);
+      const response = await fetch(`${c.API_URL}/discover/tv${moviedb_api_key}&language=en-US&sort_by=popularity.desc&page=${pageNumber}&with_genres=${id}`);
       const json = await response.json();
       dispatch({
         type: c.DISCOVER_GENRE,
+        id,
         results: json.results, 
         page: json.page
       });
@@ -50,4 +50,3 @@ export function discoverGenre(id) {
     }
   }
 }
-
