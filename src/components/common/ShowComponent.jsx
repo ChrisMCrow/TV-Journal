@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import fallback from './../../assets/fallback.png';
 
 function ShowComponent(props) {
-  const { name, poster_path, backdrop_path, overview, popularity, first_air_date } = props.show;
+  const { name, id, poster_path, backdrop_path, overview, popularity, first_air_date } = props.show;
   console.log(props);
   const img = `https://image.tmdb.org/t/p/w500/${poster_path}`;
   const backdrop = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
@@ -36,13 +37,15 @@ function ShowComponent(props) {
           margin: 10px;
           padding: 10px;
           text-shadow: 1px 1px 1px black;
-
         }
       `}</style>
-      <img className='poster' src={img} alt='POSTER' data-toggle="modal" data-target={"#id" + props.show.id} />
-
-      {/* <!-- Modal --> */}
-      <div className="modal fade" id={"id" + props.show.id} tabindex="-1" role="dialog" aria-labelledby={props.show.name + "-modal"} aria-hidden="true">
+      { poster_path ? (
+        <img className='poster' src={img} alt='POSTER' data-toggle="modal" data-target={"#id" + id} />
+      ) : (
+        <img className='poster' src={fallback} alt='POSTER' data-toggle="modal" data-target={"#id" + id} />
+      )}
+      {/* Modal */}
+      <div className="modal fade" id={"id" + id} tabindex="-1" role="dialog" aria-labelledby={props.show.name + "-modal"} aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
           <div className="modal-content">
             <div className="modal-header">
@@ -53,8 +56,15 @@ function ShowComponent(props) {
             </div>
             <div>
               <div className="modal-body">
-                <img className="modal-image" src={backdrop} />
-                <p className="description">{overview}</p>
+                {backdrop_path ? (
+                  <img className="modal-image" src={backdrop} />
+                ) : (
+                  null
+                )}
+                <div className="description">
+                  <p>{overview}</p>
+                  <p className='text-muted'>Original Airdate: {first_air_date} | Popularity: {popularity}</p>
+                </div>
               </div>
             </div>
             <div className="modal-footer">
