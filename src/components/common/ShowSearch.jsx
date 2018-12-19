@@ -5,19 +5,15 @@ import { searchTV } from './../../actions';
 function ShowSearch(props) {
   let searchQuery = React.createRef();
 
-  function handleSearchSubmit() {
+  function handleSearchSubmit(e) {
+    e.preventDefault();
     let uriQuery = encodeURI(searchQuery.current.value);
     props.dispatch(searchTV(uriQuery));
     searchQuery.current.value = '';
   }
 
   return(
-    <div className='show-search'>
-      <style jsx>{`
-        .search-form {
-          margin: 10px 0;
-        }
-      `}</style>
+    <nav className='show-search'>
       <form onSubmit={handleSearchSubmit}>
         <input
           className='form-control' 
@@ -26,7 +22,7 @@ function ShowSearch(props) {
           ref={searchQuery} 
         />
       </form>
-    </div>
+    </nav>
   );
 }
 

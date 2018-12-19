@@ -1,4 +1,5 @@
 import * as c from './../constants';
+import fire from '../fire';
 const moviedb_api_key = '?api_key=4ecfbbe47d132ddcc6b98ce77d71b265';
 
 export function getPopularShows() {
@@ -66,4 +67,31 @@ export function searchTV(query, pageNumber=1) {
       console.log('An error occurred', error);
     }
   }
+}
+
+export function login(email, password, dispatch) {
+  fire.auth().signInWithEmailAndPassword(email, password).then((u) => {
+  }).catch((error) => {
+    dispatch({
+      type: c.LOG_ERROR,
+      error: error.message
+    });
+  });
+}
+
+export function signup(email, password, dispatch) {
+  console.log('signup triggered');
+  fire.auth().createUserWithEmailAndPassword(email, password).then((u) => {
+    console.log(u);
+  }).catch((error) => {
+    dispatch({
+      type: c.LOG_ERROR,
+      error: error.message
+    });
+  });
+}
+
+export function logout() {
+  console.log('logout triggered');
+  fire.auth().signOut();
 }

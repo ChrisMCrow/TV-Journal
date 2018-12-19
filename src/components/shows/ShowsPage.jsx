@@ -11,13 +11,12 @@ function ShowsPage(props) {
   }
 
   return (
-    <div>
-      <h1>ShowsPage</h1>
+    <main>
       <div className='row'>
-        <div className='col-md-3'>
+        <aside className='col-md-3'>
           <ShowsGenre genres={props.media.genres} dispatch={props.dispatch} onSelect={handleSelect} />
-        </div>
-        <div className='col-md-9'>
+        </aside>
+        <section className='col-md-9'>
           <ShowScroll dispatch={props.dispatch} media={props.media} />
           <h3 id='genre-title'>Trending</h3>
           {props.media.selectedList ? (
@@ -26,9 +25,9 @@ function ShowsPage(props) {
             <ShowList list={props.media.trending} />
           )}
           <ShowScroll dispatch={props.dispatch} media={props.media} />
-        </div>
+        </section>
       </div>
-    </div>
+    </main>
   );
 }
 

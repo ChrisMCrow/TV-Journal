@@ -4,7 +4,7 @@ import ShowList from './../common/ShowList';
 
 function HomeTrends(props) {
   return(
-    <div className='section-container'>
+    <div className='home-trends'>
       <h1>HomeTrends</h1>
       <ShowList list={props.trending}/>
     </div>

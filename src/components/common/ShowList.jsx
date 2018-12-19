@@ -5,7 +5,7 @@ import v4 from 'uuid';
 
 function ShowList(props) {
   return(
-    <div className='show-list'>
+    <article className='show-list'>
       {props.list ? (
         Object.values(props.list).map((show) => (
           <span className='show-list-item' key={v4()}>
@@ -15,7 +15,7 @@ function ShowList(props) {
       ):(
         null
       )}
-    </div>
+    </article>
   );
 }
 

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 function HomePage(props) {
   return(
-    <div className='page'>
+    <div className='home'>
       <div className='row'>
         <div className='col'>
           <HomeMyActivity media={props.media} />

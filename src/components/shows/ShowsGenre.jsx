@@ -12,7 +12,7 @@ function ShowsGenre(props) {
   }
 
   return(
-    <div className='shows-genre'>
+    <aside className='shows-genre'>
       <ShowSearch dispatch={props.dispatch} />
       <h3>Genres</h3>
       {props.genres ? (
@@ -29,7 +29,7 @@ function ShowsGenre(props) {
       ) : (
         null
       )}
-    </div>
+    </aside>
   );
 }
 

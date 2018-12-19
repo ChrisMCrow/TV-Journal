@@ -13,7 +13,7 @@ function ShowsScroll(props) {
   }
 
   return (
-    <div className='shows-scroll'>
+    <nav className='shows-scroll'>
       {props.media.filterQuery ? (
         <div>
           <img onClick={() => handlePageTurn(-1)} src={c.LEFT_ARROW} alt='left arrow' />
@@ -27,7 +27,7 @@ function ShowsScroll(props) {
           <p className='text-muted'>1</p>
         </div>
       )}
-    </div>
+    </nav>
   );
 }
 

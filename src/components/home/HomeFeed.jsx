@@ -2,7 +2,7 @@ import React from 'react';
 
 function HomeFeed() {
   return(
-    <div className='section-container'>
+    <div className='home-feed'>
       <h1>HomeFeed</h1>
     </div>
   );
