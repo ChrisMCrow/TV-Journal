@@ -12,7 +12,7 @@ function HomeTrends(props) {
 }
 
 HomeTrends.propTypes = {
-  trending: PropTypes.object
+  trending: PropTypes.array
 }
 
 export default HomeTrends;

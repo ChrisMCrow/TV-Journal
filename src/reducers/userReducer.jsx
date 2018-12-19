@@ -4,7 +4,7 @@ const userReducer = (state = {}, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
   case c.SET_USER: 
-    newState.authUser = action.user;
+    newState.authUser = action.authUser;
     return newState;
   case c.LOG_ERROR:
     newState.loginError = action.error;

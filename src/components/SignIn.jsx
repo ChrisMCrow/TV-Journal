@@ -4,20 +4,20 @@ import PropTypes from 'prop-types';
 
 function SignIn(props) {
 
-  let email = React.createRef();
-  let password = React.createRef();
+  let _email;
+  let _password;
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    login(email.current.value, password.current.value, props.dispatch);
-    email.current.value = '';
-    password.current.value = '';
+    login(_email.value, _password.value, props.dispatch);
+    _email.value = '';
+    _password.value = '';
   }
 
   function handleSignup() {
-    signup(email.current.value, password.current.value, props.dispatch);
-    email.current.value = '';
-    password.current.value = '';
+    signup(_email.value, _password.value, props.dispatch);
+    _email.value = '';
+    _password.value = '';
   }
 
   return(
@@ -25,15 +25,14 @@ function SignIn(props) {
       <h1>SignIn</h1>
       <form onSubmit={handleFormSubmit}>
         <div className='form-group'>
-          <label for='email'>Email:</label>
-          <input name='email' className='form-control' type='email' ref={email} />
+          <label>Email:</label>
+          <input name='email' className='form-control' type='email' ref={(input) => {_email = input;}} />
         </div>
         <div className='form-group'>
-          <label for='password'>Password:</label>
-          <input name='password' className='form-control' type='password' ref={password} />
+          <label>Password:</label>
+          <input name='password' className='form-control' type='password' ref={(input) => {_password = input}} />
         </div>
         { props.user.loginError ? (<p><small className='text-muted'>{props.user.loginError}</small></p>) : null}
-        {console.log('error message: ', props.user.loginError)}
         <button type='submit' className='btn btn-default'>Sign-In</button>
         &nbsp; &nbsp;
         <button onClick={handleSignup} className='btn btn-default' type='button'>Sign-Up</button>

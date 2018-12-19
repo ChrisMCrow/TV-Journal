@@ -1,5 +1,5 @@
 import * as c from './../constants';
-import fire from '../fire';
+import firebase from 'firebase';
 const moviedb_api_key = '?api_key=4ecfbbe47d132ddcc6b98ce77d71b265';
 
 export function getPopularShows() {
@@ -70,7 +70,10 @@ export function searchTV(query, pageNumber=1) {
 }
 
 export function login(email, password, dispatch) {
-  fire.auth().signInWithEmailAndPassword(email, password).then((u) => {
+  firebase.auth().signInWithEmailAndPassword(email, password)
+  .then(() => {
+    let uid = firebase.auth().currentUser.uid;
+    c.DB.ref('users').push(uid);
   }).catch((error) => {
     dispatch({
       type: c.LOG_ERROR,
@@ -79,10 +82,11 @@ export function login(email, password, dispatch) {
   });
 }
 
-export function signup(email, password, dispatch) {
-  console.log('signup triggered');
-  fire.auth().createUserWithEmailAndPassword(email, password).then((u) => {
-    console.log(u);
+export function signup(signupEmail, password, dispatch) {
+  firebase.auth().createUserWithEmailAndPassword(signupEmail, password)
+  .then(() => {
+    let uid = firebase.auth().currentUser.uid;
+    c.DB.ref('users').child(uid).set({"email": signupEmail});
   }).catch((error) => {
     dispatch({
       type: c.LOG_ERROR,
@@ -92,6 +96,13 @@ export function signup(email, password, dispatch) {
 }
 
 export function logout() {
-  console.log('logout triggered');
-  fire.auth().signOut();
+  firebase.auth().signOut();
+}
+
+export function addToShows(show) {
+  console.log('addToShows activated', show);
+  console.log('current user: ', );
+  c.DB.ref().push('my_shows').set({
+
+  })
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import fallback from './../../assets/fallback.png';
+import { addToShows } from './../../actions';
+import * as c from './../../constants';
 
 function ShowComponent(props) {
   const { name, id, poster_path, backdrop_path, overview, popularity, first_air_date } = props.show;
@@ -43,7 +45,7 @@ function ShowComponent(props) {
 
             <footer className="modal-footer">
               <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary">Save changes</button>
+              <button onClick={() => addToShows(props.show)} type="button" className="btn btn-primary">Add to My Shows</button>
             </footer>
 
           </div>

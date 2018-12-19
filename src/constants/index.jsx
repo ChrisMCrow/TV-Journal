@@ -1,3 +1,6 @@
+import firebase from 'firebase';
+import fire from './../fire';
+
 //Media Action Types
 export const GET_TRENDING = 'GET_TRENDING';
 export const GET_GENRES = 'GET_GENRES';
@@ -7,6 +10,9 @@ export const SEARCH_TV = 'SEARCH_TV';
 //User Action Types
 export const SET_USER = 'SET_USER';
 export const LOG_ERROR = 'LOG_ERROR';
+
+//Firebase Refs
+export const DB = fire.database();
 
 //API Variables
 export const API_URL = 'https://api.themoviedb.org/3';

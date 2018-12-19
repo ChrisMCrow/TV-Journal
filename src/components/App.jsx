@@ -9,15 +9,23 @@ import ShowsPage from './shows/ShowsPage';
 import { connect } from 'react-redux';
 import { getGenres, getPopularShows } from '../actions';
 import PropTypes from 'prop-types';
+import firebase from 'firebase';
 import fire from './../fire';
 import * as c from './../constants';
 
 class App extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.authListener = this.authListener.bind(this);
+  }
+  
+  componentWillMount() {
+    this.authListener();
+  }
+  
   componentDidMount() {
     this.props.dispatch(getPopularShows());
     this.props.dispatch(getGenres());
-    this.authListener();
   }
 
   authListener() {
@@ -26,12 +34,12 @@ class App extends React.Component {
       if (user) {
         this.props.dispatch({
           type: c.SET_USER,
-          user
+          authUser: firebase.auth().currentUser.uid
         });
       } else {
         this.props.dispatch({
           type: c.SET_USER,
-          user: null
+          authUser: null
         });
       }
     })
@@ -40,7 +48,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar user={this.props.user} />
         <div className='container'>
           {this.props.user.authUser ? (
             <Switch>
