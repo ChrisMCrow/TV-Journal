@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+
+$font-stack: 'Poppins', sans-serif;
+$primary-color: rgb(5, 207, 130);
+$secondary-color: #467B8D;
+$dark-color: #040203;
+$muted-color: rgb(42, 45, 59);
+$light-color: white;
+
+
+#htmlBody {
+  font-family: $font-stack;
+  background-color: $dark-color;
+  color: white;
+}
+
+%section-container {
+  background-color: $muted-color;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.signin {
+  width: 500px;
+  margin: 100px auto;
+  background-color: $primary-color;
+  padding: 30px;
+  color: $dark-color;
+}
+
+.navbar {
+  background-color: $primary-color;
+  margin-bottom: 30px;
+
+  &-logo {
+    font-size: 32px;
+    margin: 10px;
+    color: $light-color;
+  }
+
+  &-list {
+
+    li {
+      font-size: 28px;
+      margin: 0 30px 0 0;
+      list-style: none;
+      display: inline-block;
+      
+      & * {
+        color: $light-color; 
+
+        &:hover {
+          color: $muted-color;
+        }       
+      }
+    }
+  }
+}
+
+.show {
+
+  &-list {
+    display: inline-block;
+    
+    &-item {
+      float: left;
+      min-width: 80px;
+      width: 16%;
+      margin: 10px 2%;
+      height: 215px;
+    }
+  }
+
+  &-component {
+    text-align: center;
+  
+    &-poster {
+      width: 80%;
+      min-width: 70px;
+      cursor: pointer;
+    }
+  }
+}
+
+.modal {
+
+  .modal-content {
+    background-color: $muted-color;
+    width: 80vw;
+    
+    .modal-body {
+      padding: 0;
+      overflow: auto;
+
+      .modal-image {
+        width: 100%;
+      }
+
+      .modal-description {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin: 10px;
+        padding: 10px;
+        text-shadow: 1px 1px 1px black;
+      }
+    }
+  }
+}
+
+.shows {
+
+  #genre-title {
+    margin: 0 0 20px 20px;
+  }
+
+  &-genre {
+    @extend %section-container;
+
+    &-list {
+      cursor: pointer;
+    }
+
+    &-selected {
+      color: $dark-color;
+      background-color: $light-color; 
+    }
+  }
+
+  &-scroll {
+    text-align: center;
+    margin-bottom: -50px;
+
+    img {
+      cursor: pointer;
+    }
+  }
+}

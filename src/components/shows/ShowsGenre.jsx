@@ -12,23 +12,14 @@ function ShowsGenre(props) {
   }
 
   return(
-    <div className='section-container'>
-      <style jsx>{`
-        .genre-list-item {
-          cursor: pointer;
-        }
-        .selected-item {
-          color: black;
-          background-color: #ccc; 
-        }
-      `}</style>
+    <div className='shows-genre'>
       <ShowSearch dispatch={props.dispatch} />
       <h3>Genres</h3>
       {props.genres ? (
         props.genres.map((genre) => (
           <p 
             onClick={() => handleGenreSelection(genre.id, genre.name)} 
-            className='genre-list-item' 
+            className='shows-genre-list' 
             id={'id' + genre.id} 
             key={v4()}
           >

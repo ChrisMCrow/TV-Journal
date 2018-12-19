@@ -9,40 +9,11 @@ function ShowComponent(props) {
   const backdrop = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
 
   return (
-    <div className='show-container'>
-      <style jsx>{`
-        .show-container {
-          text-align: center;
-        }
-        .poster {
-          width: 80%;
-          min-width: 70px;
-          cursor: pointer;
-        }
-        .modal-content {
-          background-color: #333;
-          width: 80vw;
-        }
-        .modal-body {
-          padding: 0;
-          overflow: auto;
-        }
-        .modal-image {
-          width: 100%;
-        }
-        .description {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          margin: 10px;
-          padding: 10px;
-          text-shadow: 1px 1px 1px black;
-        }
-      `}</style>
+    <div className='show-component'>
       { poster_path ? (
-        <img className='poster' src={img} alt='POSTER' data-toggle="modal" data-target={"#id" + id} />
+        <img className='show-component-poster' src={img} alt='POSTER' data-toggle="modal" data-target={"#id" + id} />
       ) : (
-        <img className='poster' src={fallback} alt='POSTER' data-toggle="modal" data-target={"#id" + id} />
+        <img className='show-component-poster' src={fallback} alt='POSTER' data-toggle="modal" data-target={"#id" + id} />
       )}
       {/* Modal */}
       <div className="modal fade" id={"id" + id} tabindex="-1" role="dialog" aria-labelledby={props.show.name + "-modal"} aria-hidden="true">
@@ -61,7 +32,7 @@ function ShowComponent(props) {
                 ) : (
                   null
                 )}
-                <div className="description">
+                <div className="modal-description">
                   <p>{overview}</p>
                   <p className='text-muted'>Original Airdate: {first_air_date} | Popularity: {popularity}</p>
                 </div>

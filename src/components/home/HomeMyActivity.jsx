@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 function HomeMyActivity(props) {
   return(
     <div className='section-container'>
-      <style jsx>{`
-      `}</style>
       <h1>My Activity</h1>
       <h2>Current Shows</h2>
       <ShowList list={props.media.trending} />

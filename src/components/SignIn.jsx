@@ -7,17 +7,7 @@ function SignIn() {
   }
 
   return(
-    <div className='sign-in-window'>
-      <style>{`
-        .sign-in-window {
-          width: 500px;
-          margin: 100px auto;
-          background-color: #47e58b;
-          padding: 30px;
-
-          color: black;
-        }
-      `}</style>
+    <div className='signin'>
       <h1>SignIn</h1>
       <form onSubmit={handleFormSubmit}>
         <div className='form-group'>

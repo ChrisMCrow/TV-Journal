@@ -12,15 +12,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-#htmlBody {
-  color: white;
-  background-color: black;
-}
-
-.section-container {
-  background-color: #333;
-  padding: 10px;
-  border-radius: 3px;
-}
-

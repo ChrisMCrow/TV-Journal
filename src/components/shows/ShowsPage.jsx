@@ -12,11 +12,6 @@ function ShowsPage(props) {
 
   return (
     <div>
-      <style jsx>{`
-        #genre-title {
-          margin: 0 0 20px 20px;
-        }
-      `}</style>
       <h1>ShowsPage</h1>
       <div className='row'>
         <div className='col-md-3'>

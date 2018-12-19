@@ -13,16 +13,7 @@ function ShowsScroll(props) {
   }
 
   return (
-    <div className='button-wrapper'>
-      <style jsx>{`
-        .button-wrapper {
-          text-align: center;
-          margin-bottom: -50px;
-        }
-        .button-wrapper img {
-          cursor: pointer;
-        }
-      `}</style>
+    <div className='shows-scroll'>
       {props.media.filterQuery ? (
         <div>
           <img onClick={() => handlePageTurn(-1)} src={c.LEFT_ARROW} alt='left arrow' />

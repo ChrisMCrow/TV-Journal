@@ -7,9 +7,6 @@ import PropTypes from 'prop-types';
 function HomePage(props) {
   return(
     <div className='page'>
-      <style jsx>{`
-
-      `}</style>
       <div className='row'>
         <div className='col'>
           <HomeMyActivity media={props.media} />

@@ -12,7 +12,7 @@ function ShowSearch(props) {
   }
 
   return(
-    <div className='search-form'>
+    <div className='show-search'>
       <style jsx>{`
         .search-form {
           margin: 10px 0;
