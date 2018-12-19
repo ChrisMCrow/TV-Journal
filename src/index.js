@@ -4,12 +4,13 @@ import './index.css';
 import App from './components/App';
 import { HashRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import thunkMiddleware from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import middlewareLogger from './middleware/middlewareLogger';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 
 export const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMiddleware));
 

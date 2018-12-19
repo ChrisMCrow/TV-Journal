@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as actions from './../../actions';
+import { discoverGenre } from './../../actions';
 import v4 from 'uuid';
 import ShowSearch from './../common/ShowSearch';
 
 function ShowsGenre(props) {
 
   function handleGenreSelection(genreId, genreName) {
-    props.dispatch(actions.discoverGenre(genreId));
+    props.dispatch(discoverGenre(genreId));
     props.onSelect(genreName);
   }
 

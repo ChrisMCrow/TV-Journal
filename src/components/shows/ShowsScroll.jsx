@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as c from './../../constants';
-import * as actions from './../../actions';
+import { discoverGenre } from './../../actions';
 
 function ShowsScroll(props) {
 
   function handlePageTurn(direction) {
     let newPage = props.media.page + direction;
     if (newPage > 0) {
-      props.dispatch(actions.discoverGenre(props.media.filterQuery, newPage));
+      props.dispatch(discoverGenre(props.media.filterQuery, newPage));
     }
   }
 

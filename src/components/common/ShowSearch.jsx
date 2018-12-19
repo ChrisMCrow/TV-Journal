@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as actions from './../../actions';
+import { searchTV } from './../../actions';
 
 function ShowSearch(props) {
   let searchQuery = React.createRef();
 
   function handleSearchSubmit() {
     let uriQuery = encodeURI(searchQuery.current.value);
-    props.dispatch(actions.searchTV(uriQuery));
+    props.dispatch(searchTV(uriQuery));
     searchQuery.current.value = '';
   }
 
