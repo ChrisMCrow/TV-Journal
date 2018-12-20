@@ -125,10 +125,8 @@ export function logout() {
 }
 
 export function addToShows(show) {
-  console.log('addToShows activated', show);
-  console.log('current user: ', );
-  DB.ref().push('my_shows').set({
-
-  })
+  let uid = firebase.auth().currentUser.uid;
+  console.log('addToShows activated', show, uid);
+  DB.ref('users/' + uid).child('watching').push(show);
 }
 

@@ -7,29 +7,32 @@ const { c } = constants;
 
 function Navbar(props) {
 
-  function handleSignOut() {
-    logout();
-  }
-
-  return (
-    <div className='navbar'>
-      <img className='navbar-logo float-left' src={c.TV_LOGO} alt='logo'/>
-      <ul className='text-right navbar-list'>
-        {props.user.authUser ? (
+  if (props.user.authUser) {
+    return (
+      <div className='navbar'>
+        <img className='navbar-logo float-left' src={c.TV_LOGO} alt='logo' />
+        <ul className='text-right navbar-list'>
           <div>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/friends'>Friends</Link></li>
             <li><Link to='/shows'>Shows</Link></li>
-            <li onClick={handleSignOut}><Link to='/'>Sign Out</Link></li>
+            <li onClick={() => logout()}><Link to='/'>Sign Out</Link></li>
           </div>
-        ) : (
+        </ul>
+      </div>
+    );
+  } else {
+    return (
+      <div className='navbar'>
+        <img className='navbar-logo float-left' src={c.TV_LOGO} alt='logo' />
+        <ul className='text-right navbar-list'>
           <div>
             <li>Sign In</li>
           </div>
-        )}
-      </ul>
-    </div>
-  );
+        </ul>
+      </div>
+    );
+  }
 }
 
 Navbar.propTypes = {
