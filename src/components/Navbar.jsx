@@ -9,7 +9,7 @@ function Navbar(props) {
 
   if (props.user.authUser) {
     return (
-      <div className='navbar'>
+      <nav className='navbar'>
         <div className='float-left' >
           <img className='navbar-logo float-left' src={c.TV_LOGO} alt='logo' />
           <h1 className='navbar-title float-left'>Tervy</h1>
@@ -22,7 +22,7 @@ function Navbar(props) {
             <li onClick={() => props.dispatch(logout())}><Link to='/'>Sign Out</Link></li>
           </div>
         </ul>
-      </div>
+      </nav>
     );
   } else {
     return (

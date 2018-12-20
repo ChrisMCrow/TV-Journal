@@ -17,8 +17,10 @@ class App extends React.Component {
     
   render() {
     return (
-      <div>
-        <Navbar user={this.props.user} dispatch={this.props.dispatch} />
+      <div className='app'>
+        <nav>
+          <Navbar user={this.props.user} dispatch={this.props.dispatch} />
+        </nav>
         <div className='container'>
           {this.props.user.authUser ? (
             <Switch>

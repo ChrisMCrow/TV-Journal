@@ -2,33 +2,59 @@
 
 
 $font-stack: 'Poppins', sans-serif;
-$primary-color: #86c232;
-$secondary-color: #61892f;
-$background-color: #222629;
-$muted-color: #474b4f;
-$light-color: #6b6e70;
-$text-color: white;
 
-      /* width */
-      ::-webkit-scrollbar {
-        width: 10px;
-        height: 10px;
-      }
+//Black & Green
+// $primary-color: #86c232;
+// $secondary-color: #61892f;
+// $background-color: #222629;
+// $muted-color: #474b4f;
+// $light-color: #6b6e70;
+// $text-color: white;
 
-      /* Track */
-      ::-webkit-scrollbar-track {
-        background: $muted-color; 
-      }
+//Pastel
+// $primary-color: #e27d60;
+// $secondary-color: #e8a87c;
+// $background-color: #222629;
+// $muted-color: #474b4f;
+// $light-color: #6b6e70;
+// $text-color: white;
 
-      /* Handle */
-      ::-webkit-scrollbar-thumb {
-        background: $secondary-color; 
-      }
+//Light & Bright
+// $primary-color: #fc4a1a;
+// $secondary-color: #f7b733;
+// $background-color: #dfdce3;
+// $muted-color: #eeeef3;
+// $light-color: white;
+// $text-color: black;
 
-      /* Handle on hover */
-      ::-webkit-scrollbar-thumb:hover {
-        background: $primary-color; 
-      }
+//Facebook
+$primary-color: #4268B2;
+$secondary-color: #F5F6F7;
+$background-color: #E9EBEE;
+$muted-color: #F5F6F7;
+$light-color: white;
+$text-color: black;
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $light-color; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $secondary-color; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $primary-color; 
+}
 
 #htmlBody {
   font-family: $font-stack;
@@ -40,6 +66,7 @@ $text-color: white;
   background-color: $muted-color;
   padding: 10px;
   border-radius: 3px;
+  border: 1px solid lightgray;
 }
 
 .signin {
@@ -51,9 +78,16 @@ $text-color: white;
 }
 
 //Top Navbar
+.app nav {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
 .navbar {
   background-color: $primary-color;
   margin-bottom: 30px;
+  border-bottom: 1px solid navy;
 
   &-logo {
     font-size: 12px;
@@ -69,7 +103,7 @@ $text-color: white;
     margin: 0;
 
     li {
-      font-size: 18px;
+      font-size: 25px;
       margin: 0 30px 0 0;
       list-style: none;
       display: inline-block;
@@ -91,16 +125,17 @@ $text-color: white;
     @extend %section-container;
   }
   &-activity {
-    @extend %section-container;
-
+    position: sticky;
+    top: 105px;
+    
     &-list {
-      background-color: $light-color;
-      border-radius: 5px;
-      margin: 10px;
+      background-color: $muted-color;
+      // border-radius: 5px;
+      margin-bottom: 20px;
     }
 
     h3 {
-      margin: 30px 0 10px 10px;
+      margin: 0 0 10px 10px;
       padding-top: 10px;
     }
 
@@ -122,13 +157,11 @@ $text-color: white;
     display: inline-block;
         
     &-item {
-      $width: 20%;
-      min-width: 80px;
       display: inline-block;
       width: 120px;
       vertical-align: top;
       height: 210px;
-      margin: 10px 10px;
+      margin: 20px 10px;
 
       img {
         box-shadow: 2px 2px 5px black;
@@ -156,7 +189,7 @@ $text-color: white;
       top: -10px;
       right: 1px;
       color: $background-color;
-      background-color: lightgray;
+      background-color: $text-color;
       border-radius: 50px;
       height: 22px;
       width: 22px;
