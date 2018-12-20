@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ShowComponent from './ShowComponent';
+import { ShowComponent } from './../../components';
 import v4 from 'uuid';
 
 function ShowList(props) {

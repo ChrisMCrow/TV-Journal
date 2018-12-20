@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ShowsGenre from './ShowsGenre';
-import ShowList from './../common/ShowList';
-import ShowScroll from './ShowsScroll';
+import { ShowsGenre, ShowList, ShowsScroll } from './../../components';
 
 function ShowsPage(props) {
 
@@ -17,14 +15,14 @@ function ShowsPage(props) {
           <ShowsGenre genres={props.media.genres} dispatch={props.dispatch} onSelect={handleSelect} />
         </aside>
         <section className='col-md-9'>
-          <ShowScroll dispatch={props.dispatch} media={props.media} />
+          <ShowsScroll dispatch={props.dispatch} media={props.media} />
           <h3 id='genre-title'>Trending</h3>
           {props.media.selectedList ? (
             <ShowList list={props.media.selectedList} />
           ) : (
             <ShowList list={props.media.trending} />
           )}
-          <ShowScroll dispatch={props.dispatch} media={props.media} />
+          <ShowsScroll dispatch={props.dispatch} media={props.media} />
         </section>
       </div>
     </main>

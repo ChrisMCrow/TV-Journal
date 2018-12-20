@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as c from './../../constants';
 import { discoverGenre } from './../../actions';
+import constants from './../../constants';
+const { c } = constants;
 
 function ShowsScroll(props) {
 

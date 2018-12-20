@@ -3,7 +3,6 @@ import { login, signup } from './../actions';
 import PropTypes from 'prop-types';
 
 function SignIn(props) {
-
   let _email;
   let _password;
 

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { logout } from './../actions';
-import * as c from './../constants';
 import PropTypes from 'prop-types';
+import constants from './../constants';
+const { c } = constants;
 
 function Navbar(props) {
 
@@ -12,7 +13,7 @@ function Navbar(props) {
 
   return (
     <div className='navbar'>
-      <img className='navbar-logo float-left' src={c.TV_LOGO} />
+      <img className='navbar-logo float-left' src={c.TV_LOGO} alt='logo'/>
       <ul className='text-right navbar-list'>
         {props.user.authUser ? (
           <div>
@@ -22,7 +23,9 @@ function Navbar(props) {
             <li onClick={handleSignOut}><Link to='/'>Sign Out</Link></li>
           </div>
         ) : (
-          <li>Sign In</li>
+          <div>
+            <li>Sign In</li>
+          </div>
         )}
       </ul>
     </div>

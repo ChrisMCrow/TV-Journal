@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { discoverGenre } from './../../actions';
+import { ShowSearch } from './../../components';
 import v4 from 'uuid';
-import ShowSearch from './../common/ShowSearch';
 
 function ShowsGenre(props) {
 

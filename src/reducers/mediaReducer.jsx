@@ -1,4 +1,5 @@
-import * as c from './../constants';
+import constants from './../constants';
+const { c } = constants;
 
 const mediaReducer = (state = {}, action) => {
   let newState = Object.assign({}, state);

@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import fallback from './../../assets/fallback.png';
 import { addToShows } from './../../actions';
-import * as c from './../../constants';
+import constants from './../../constants';
+const { c } = constants;
 
 function ShowComponent(props) {
   const { name, id, poster_path, backdrop_path, overview, popularity, first_air_date } = props.show;
@@ -32,7 +33,7 @@ function ShowComponent(props) {
             <main>
               <div className="modal-body">
                 {backdrop_path ? (
-                  <img className="modal-image" src={backdrop} />
+                  <img className="modal-image" src={backdrop} alt="show backdrop"/>
                 ) : (
                   null
                 )}
