@@ -3,6 +3,7 @@ export const GET_TRENDING = 'GET_TRENDING';
 export const GET_GENRES = 'GET_GENRES';
 export const DISCOVER_GENRE = 'DISCOVER_GENRE';
 export const SEARCH_TV = 'SEARCH_TV';
+export const REMOVE_SHOW = 'REMOVE_SHOW'
 
 //User Action Types
 export const SET_USER = 'SET_USER';

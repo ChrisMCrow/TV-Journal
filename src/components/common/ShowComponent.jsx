@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import fallback from './../../assets/fallback.png';
-import { addToShows } from './../../actions';
+import { addToShows, deleteFromList } from './../../actions';
 import constants from './../../constants';
 const { c } = constants;
 
@@ -15,8 +15,13 @@ function ShowComponent(props) {
       {poster_path ? (
         <img className='show-component-poster' src={img} alt='POSTER' data-toggle="modal" data-target={"#id" + id} />
       ) : (
-          <img className='show-component-poster' src={fallback} alt='POSTER' data-toggle="modal" data-target={"#id" + id} />
-        )}
+        <img className='show-component-poster' src={fallback} alt='POSTER' data-toggle="modal" data-target={"#id" + id} />
+      )}
+      {(props.show.hasOwnProperty('onList')) ? (
+        <p onClick={() => deleteFromList(props.show.id, props.listTitle)} className='show-component-close'>&times;</p>
+      ) : ( null )}
+      <p>{name}</p>
+
 
       {/* Modal */}
       <article className="modal fade" id={"id" + id} tabIndex="-1" role="dialog" aria-labelledby={props.show.name + "-modal"} aria-hidden="true">
@@ -52,8 +57,8 @@ function ShowComponent(props) {
                   Add to List
                 </button>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <button type='button' data-dismiss="modal" className="dropdown-item" onClick={() => addToShows('watching', props.show)}>Currently Watching</button>
                   <button type='button' data-dismiss="modal" className="dropdown-item" onClick={() => addToShows('caught_up', props.show)}>Caught Up</button>
-                  <button type='button' data-dismiss="modal" className="dropdown-item" onClick={() => addToShows('watching', props.show)}>Watching Currently</button>
                   <button type='button' data-dismiss="modal" className="dropdown-item" onClick={() => addToShows('watchlist', props.show)}>Want to Watch</button>
                 </div>
               </div>
@@ -62,14 +67,13 @@ function ShowComponent(props) {
           </div>
         </div>
       </article>
-
-      <p>{name}</p>
     </figure>
   );
 }
 
 ShowComponent.propTypes = {
-  show: PropTypes.object
+  show: PropTypes.object,
+  listTitle: PropTypes.string
 }
 
 export default ShowComponent;

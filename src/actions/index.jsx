@@ -102,17 +102,25 @@ export function authListener() {
 
 //Called by authListener
 function watchShowsRef(dispatch) {
-  const lists = ['caught_up', 'watching', 'watchlist']
+  const lists = ['watching', 'caught_up', 'watchlist']
   lists.forEach((list) => {
     DB.ref('users/' + uid + '/' + list).on('child_added', data => {
       const newShow = Object.assign({}, data.val());
-      console.log('newShow', newShow)
       dispatch({
         type: c.ADD_SHOW,
         list,
         newShow
       });
     });
+    DB.ref('users/' + uid + '/' + list).on('child_removed', data => {
+      console.log('showToRemove', data)
+      dispatch({
+        type: c.REMOVE_SHOW,
+        list,
+        showId: data.key
+      });
+    });
+
   })
 
 }
@@ -147,4 +155,10 @@ export function logout() {
 
 export function addToShows(list, show) {
   DB.ref('users/' + uid).child(list).child(show.id).set(show);
+}
+
+export function deleteFromList(showId, listTitle) {
+  let path='users/' + uid + '/' + listTitle + '/' + showId
+  console.log('deleteFromList path', path);
+  DB.ref('users/' + uid + '/' + listTitle + '/' + showId).remove();
 }

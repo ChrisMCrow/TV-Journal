@@ -12,7 +12,7 @@ const userReducer = (state = {}, action) => {
     return newState;
   case c.ADD_SHOW:
     let newShowObject = {
-      [action.newShow.id]: action.newShow
+      [action.newShow.id]: Object.assign({},action.newShow, { onList: true })
     }
     if (!(newState[action.list])) {
       newState[action.list] = newShowObject;
@@ -20,7 +20,11 @@ const userReducer = (state = {}, action) => {
       newState[action.list] = Object.assign(newState[action.list], newShowObject);
     }
     return newState;
-    default:
+  case c.REMOVE_SHOW:
+    console.log('REMOVE_SHOW action', newState[action.list][action.showId]);
+    delete newState[action.list][action.showId];
+    return newState;
+  default:
     return state;
   }
 }

@@ -97,10 +97,23 @@ $text-color: white;
 
   &-component {
     text-align: center;
+    position: relative;
   
     &-poster {
       width: 80%;
       min-width: 70px;
+      cursor: pointer;
+    }
+
+    &-close {
+      position: absolute;
+      top: -10px;
+      right: -8px;
+      color: $background-color;
+      background-color: lightgray;
+      border-radius: 50px;
+      height: 22px;
+      width: 22px;
       cursor: pointer;
     }
   }
@@ -143,6 +156,12 @@ $text-color: white;
 
       .modal-details {
         color: $primary-color;
+      }  
+    }
+
+    .modal-footer {
+      button.dropdown-item {
+        cursor: pointer;
       }
     }
   }

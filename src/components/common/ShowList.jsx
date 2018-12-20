@@ -9,7 +9,7 @@ function ShowList(props) {
       {props.list ? (
         Object.values(props.list).map((show) => (
           <span className='show-list-item' key={v4()}>
-            <ShowComponent show={show} />
+            <ShowComponent show={show} listTitle={props.listTitle} />
           </span>
         ))
       ):(
@@ -20,7 +20,8 @@ function ShowList(props) {
 }
 
 ShowList.propTypes = {
-  list: PropTypes.object
+  list: PropTypes.object,
+  listTitle: PropTypes.string
 }
 
 export default ShowList;
