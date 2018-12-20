@@ -8,13 +8,13 @@ function HomePage(props) {
   return(
     <div className='home'>
       <div className='row'>
-        <div className='col-md-4'>
-          <HomeMyActivity media={props.media} user={props.user} />
+        <div className='col-md-7'>
+          <HomeMyActivity media={props.media} user={props.user}dispatch={props.dispatch} />
         </div>
-        <div className='col-md-4'>
+        {/* <div className='col-md-4'>
           <HomeFeed />
-        </div>
-        <div className='col-md-4'>
+        </div> */}
+        <div className='col-md-5'>
           <HomeTrends trending={props.media.trending} />
         </div>
       </div>
@@ -24,7 +24,8 @@ function HomePage(props) {
 
 HomePage.propTypes = {
   media: PropTypes.object,
-  user: PropTypes.object
+  user: PropTypes.object,
+  dispatch: PropTypes.func
 }
 
 export default HomePage;

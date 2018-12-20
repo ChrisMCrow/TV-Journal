@@ -113,7 +113,6 @@ function watchShowsRef(dispatch) {
       });
     });
     DB.ref('users/' + uid + '/' + list).on('child_removed', data => {
-      console.log('showToRemove', data)
       dispatch({
         type: c.REMOVE_SHOW,
         list,
@@ -122,7 +121,6 @@ function watchShowsRef(dispatch) {
     });
 
   })
-
 }
 
 export function login(email, password, dispatch) {
@@ -151,6 +149,11 @@ export function signup(signupEmail, password, dispatch) {
 
 export function logout() {
   firebase.auth().signOut();
+  return function (dispatch) {
+    dispatch({
+      type: c.CLEAR_USER
+    })
+  }
 }
 
 export function addToShows(list, show) {
@@ -158,7 +161,17 @@ export function addToShows(list, show) {
 }
 
 export function deleteFromList(showId, listTitle) {
-  let path='users/' + uid + '/' + listTitle + '/' + showId
-  console.log('deleteFromList path', path);
   DB.ref('users/' + uid + '/' + listTitle + '/' + showId).remove();
+}
+
+export function handleHover(showId, listTitle, bool) {
+  return function (dispatch) {
+    console.log(bool)
+    dispatch({
+      type: c.TOGGLE_HOVER,
+      showId,
+      listTitle,
+      bool: bool
+    });
+  }
 }

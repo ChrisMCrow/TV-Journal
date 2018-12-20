@@ -1,25 +1,43 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import fallback from './../../assets/fallback.png';
-import { addToShows, deleteFromList } from './../../actions';
+import { addToShows, deleteFromList, handleHover } from './../../actions';
 import constants from './../../constants';
 const { c } = constants;
 
 function ShowComponent(props) {
   const { name, id, poster_path, backdrop_path, overview, popularity, first_air_date } = props.show;
+  const { dispatch } = props;
   const img = `https://image.tmdb.org/t/p/w500/${poster_path}`;
   const backdrop = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
 
   return (
     <figure className='show-component'>
-      {poster_path ? (
-        <img className='show-component-poster' src={img} alt='POSTER' data-toggle="modal" data-target={"#id" + id} />
+      {props.show.hasOwnProperty('onList') ? (
+        <div
+          onMouseEnter={() => dispatch(handleHover(props.show.id, props.listTitle, true))}
+          onMouseLeave={() => dispatch(handleHover(props.show.id, props.listTitle, false))}
+        >
+          <img
+            className='show-component-poster'
+            src={poster_path ? img : fallback}
+            alt='POSTER'
+            data-toggle="modal"
+            data-target={"#id" + id}
+          />
+          {props.show.onList ? (
+            <p onClick={() => deleteFromList(props.show.id, props.listTitle)} className='show-component-close'>&times;</p>
+          ) : (null)}
+        </div>
       ) : (
-        <img className='show-component-poster' src={fallback} alt='POSTER' data-toggle="modal" data-target={"#id" + id} />
+        <img
+          className='show-component-poster'
+          src={poster_path ? img : fallback}
+          alt='POSTER'
+          data-toggle="modal"
+          data-target={"#id" + id}
+        />
       )}
-      {(props.show.hasOwnProperty('onList')) ? (
-        <p onClick={() => deleteFromList(props.show.id, props.listTitle)} className='show-component-close'>&times;</p>
-      ) : ( null )}
       <p className='show-component-title'>{name}</p>
 
 
@@ -73,7 +91,8 @@ function ShowComponent(props) {
 
 ShowComponent.propTypes = {
   show: PropTypes.object,
-  listTitle: PropTypes.string
+  listTitle: PropTypes.string,
+  dispatch: PropTypes.func
 }
 
 export default ShowComponent;

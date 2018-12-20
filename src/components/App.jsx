@@ -18,7 +18,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Navbar user={this.props.user} />
+        <Navbar user={this.props.user} dispatch={this.props.dispatch} />
         <div className='container'>
           {this.props.user.authUser ? (
             <Switch>
@@ -27,6 +27,7 @@ class App extends React.Component {
                 render={() => <HomePage 
                   media={this.props.media} 
                   user={this.props.user} 
+                  dispatch={this.props.dispatch}
                 />}
               />
               <Route path='/friends' component={FriendsPage} />

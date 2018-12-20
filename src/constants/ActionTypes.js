@@ -9,6 +9,8 @@ export const REMOVE_SHOW = 'REMOVE_SHOW'
 export const SET_USER = 'SET_USER';
 export const LOG_ERROR = 'LOG_ERROR';
 export const ADD_SHOW = 'ADD_SHOW';
+export const TOGGLE_HOVER = 'TOGGLE_HOVER';
+export const CLEAR_USER = 'CLEAR_USER';
 
 //API Variables
 export const API_URL = 'https://api.themoviedb.org/3';

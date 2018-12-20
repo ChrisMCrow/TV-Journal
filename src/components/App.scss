@@ -6,8 +6,29 @@ $primary-color: #86c232;
 $secondary-color: #61892f;
 $background-color: #222629;
 $muted-color: #474b4f;
+$light-color: #6b6e70;
 $text-color: white;
 
+      /* width */
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: $muted-color; 
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: $secondary-color; 
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: $primary-color; 
+      }
 
 #htmlBody {
   font-family: $font-stack;
@@ -72,12 +93,24 @@ $text-color: white;
   &-activity {
     @extend %section-container;
 
+    &-list {
+      background-color: $light-color;
+      border-radius: 5px;
+      margin: 10px;
+    }
+
+    h3 {
+      margin: 30px 0 10px 10px;
+      padding-top: 10px;
+    }
+
     &-scrolling {
       overflow-x: scroll;
       overflow-y: hidden;
-      white-space: nowrap;
+      white-space: nowrap;  
     }
   }
+
   &-trends {
     @extend %section-container;
   }
@@ -87,7 +120,7 @@ $text-color: white;
 .show {
   &-list {
     display: inline-block;
-    
+        
     &-item {
       $width: 20%;
       min-width: 80px;
@@ -95,7 +128,7 @@ $text-color: white;
       width: 120px;
       vertical-align: top;
       height: 210px;
-      margin: 10px 2%;
+      margin: 10px 10px;
 
       img {
         box-shadow: 2px 2px 5px black;
@@ -107,7 +140,6 @@ $text-color: white;
     text-align: center;
     font-size: 16px;
     position: relative;
-    overflow-wrap: break-word !important;
   
     &-poster {
       width: 80%;
@@ -122,7 +154,7 @@ $text-color: white;
     &-close {
       position: absolute;
       top: -10px;
-      right: -8px;
+      right: 1px;
       color: $background-color;
       background-color: lightgray;
       border-radius: 50px;
