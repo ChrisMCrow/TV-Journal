@@ -7,6 +7,7 @@ export const SEARCH_TV = 'SEARCH_TV';
 //User Action Types
 export const SET_USER = 'SET_USER';
 export const LOG_ERROR = 'LOG_ERROR';
+export const ADD_SHOW = 'ADD_SHOW';
 
 //API Variables
 export const API_URL = 'https://api.themoviedb.org/3';

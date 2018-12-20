@@ -7,7 +7,7 @@ function HomeMyActivity(props) {
     <div className='home-activity'>
       <h1>My Activity</h1>
       <h2>Current Shows</h2>
-      <ShowList list={props.media.trending} />
+      <ShowList list={props.user.authUser.caughtUp} />
       <h2>Shows I want to watch</h2>
       <ShowList list={props.media.trending} />
     </div>
@@ -15,7 +15,8 @@ function HomeMyActivity(props) {
 }
 
 HomeMyActivity.propTypes = {
-  media: PropTypes.object
+  media: PropTypes.object,
+  user: PropTypes.object
 }
 
 export default HomeMyActivity;

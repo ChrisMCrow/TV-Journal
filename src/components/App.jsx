@@ -4,7 +4,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import './App.scss';
 import { Navbar, Signin, HomePage, FriendsPage, ShowsPage } from './../components';
 import PropTypes from 'prop-types';
-import { getGenres, getPopularShows, authListener } from '../actions';
+import { getGenres, getPopularShows, authListener, watchShowsRef } from '../actions';
 
 class App extends React.Component {
 
@@ -13,6 +13,7 @@ class App extends React.Component {
     dispatch(authListener());
     dispatch(getPopularShows());
     dispatch(getGenres());
+    dispatch(watchShowsRef());
   }
   
   render() {
@@ -24,7 +25,10 @@ class App extends React.Component {
             <Switch>
               <Route
                 exact path='/'
-                render={() => <HomePage media={this.props.media} />}
+                render={() => <HomePage 
+                  media={this.props.media} 
+                  user={this.props.user} 
+                />}
               />
               <Route path='/friends' component={FriendsPage} />
               <Route

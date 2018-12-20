@@ -9,7 +9,7 @@ function HomePage(props) {
     <div className='home'>
       <div className='row'>
         <div className='col'>
-          <HomeMyActivity media={props.media} />
+          <HomeMyActivity media={props.media} user={props.user} />
         </div>
         <div className='col'>
           <HomeFeed />
@@ -23,7 +23,8 @@ function HomePage(props) {
 }
 
 HomePage.propTypes = {
-  media: PropTypes.object
+  media: PropTypes.object,
+  user: PropTypes.object
 }
 
 export default HomePage;

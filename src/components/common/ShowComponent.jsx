@@ -12,11 +12,11 @@ function ShowComponent(props) {
 
   return (
     <figure className='show-component'>
-      { poster_path ? (
+      {poster_path ? (
         <img className='show-component-poster' src={img} alt='POSTER' data-toggle="modal" data-target={"#id" + id} />
       ) : (
-        <img className='show-component-poster' src={fallback} alt='POSTER' data-toggle="modal" data-target={"#id" + id} />
-      )}
+          <img className='show-component-poster' src={fallback} alt='POSTER' data-toggle="modal" data-target={"#id" + id} />
+        )}
 
       {/* Modal */}
       <article className="modal fade" id={"id" + id} tabIndex="-1" role="dialog" aria-labelledby={props.show.name + "-modal"} aria-hidden="true">
@@ -33,10 +33,10 @@ function ShowComponent(props) {
             <main>
               <div className="modal-body">
                 {backdrop_path ? (
-                  <img className="modal-image" src={backdrop} alt="show backdrop"/>
+                  <img className="modal-image" src={backdrop} alt="show backdrop" />
                 ) : (
-                  null
-                )}
+                    null
+                  )}
                 <div className="modal-description">
                   <p>{overview}</p>
                   <p className='modal-details'>Original Airdate: {first_air_date}  |  Popularity: {Math.floor(popularity)}</p>
@@ -46,7 +46,17 @@ function ShowComponent(props) {
 
             <footer className="modal-footer">
               <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button onClick={() => addToShows(props.show)} type="button" className="btn btn-primary">Add to My Shows</button>
+
+              <div className="dropdown">
+                <button className="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Add to List
+                </button>
+                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <button type='button' data-dismiss="modal" className="dropdown-item" onClick={() => addToShows('caught_up', props.show)}>Caught Up</button>
+                  <button type='button' data-dismiss="modal" className="dropdown-item" onClick={() => addToShows('watching', props.show)}>Watching Currently</button>
+                  <button type='button' data-dismiss="modal" className="dropdown-item" onClick={() => addToShows('watchlist', props.show)}>Want to Watch</button>
+                </div>
+              </div>
             </footer>
 
           </div>
