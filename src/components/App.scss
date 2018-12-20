@@ -40,6 +40,10 @@ $text-color: white;
     color: $text-color;
   }
 
+  &-title {
+    text-align: left;
+  }
+
   &-list {
     margin: 0;
 

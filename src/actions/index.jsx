@@ -77,16 +77,20 @@ export function searchTV(query, pageNumber = 1) {
 //Firebase Actions
 firebase.initializeApp(firebaseConfig);
 const DB = firebase.database();
+let uid;
 
 export function authListener() {
   return function (dispatch) {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
+        uid = firebase.auth().currentUser.uid;
+        watchShowsRef(dispatch);
         dispatch({
           type: c.SET_USER,
           authUser: firebase.auth().currentUser.uid
         });
       } else {
+        uid = null;
         dispatch({
           type: c.SET_USER,
           authUser: null
@@ -94,6 +98,23 @@ export function authListener() {
       }
     });
   }
+}
+
+//Called by authListener
+function watchShowsRef(dispatch) {
+  const lists = ['caught_up', 'watching', 'watchlist']
+  lists.forEach((list) => {
+    DB.ref('users/' + uid + '/' + list).on('child_added', data => {
+      const newShow = Object.assign({}, data.val());
+      console.log('newShow', newShow)
+      dispatch({
+        type: c.ADD_SHOW,
+        list,
+        newShow
+      });
+    });
+  })
+
 }
 
 export function login(email, password, dispatch) {
@@ -110,7 +131,7 @@ export function login(email, password, dispatch) {
 export function signup(signupEmail, password, dispatch) {
   firebase.auth().createUserWithEmailAndPassword(signupEmail, password)
     .then(() => {
-      let uid = firebase.auth().currentUser.uid;
+      // uid = firebase.auth().currentUser.uid;
       DB.ref('users').child(uid).set({ "email": signupEmail });
     }).catch((error) => {
       dispatch({
@@ -125,24 +146,5 @@ export function logout() {
 }
 
 export function addToShows(list, show) {
-  const uid = firebase.auth().currentUser.uid;
-  DB.ref('users/' + uid).child(list).push(show);
+  DB.ref('users/' + uid).child(list).child(show.id).set(show);
 }
-
-export function watchShowsRef() {
-  console.log('watching');
-  return function (dispatch) {
-    DB.ref('caught_up').on('child_added', data => {
-      console.log('on change occurred');
-      const newShow = Object.assign({}, data.val(), {
-        id: data.getKey()
-      });
-      dispatch({
-        type: c.ADD_SHOW,
-        list: 'caughtUp',
-        newShow
-      });
-    });
-  }
-}
-

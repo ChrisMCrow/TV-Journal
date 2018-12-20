@@ -10,7 +10,10 @@ function Navbar(props) {
   if (props.user.authUser) {
     return (
       <div className='navbar'>
-        <img className='navbar-logo float-left' src={c.TV_LOGO} alt='logo' />
+        <div className='float-left' >
+          <img className='navbar-logo float-left' src={c.TV_LOGO} alt='logo' />
+          <h1 className='navbar-title float-left'>Tervy</h1>
+        </div>
         <ul className='text-right navbar-list'>
           <div>
             <li><Link to='/'>Home</Link></li>
@@ -24,7 +27,10 @@ function Navbar(props) {
   } else {
     return (
       <div className='navbar'>
-        <img className='navbar-logo float-left' src={c.TV_LOGO} alt='logo' />
+        <div className='float-left' >
+          <img className='navbar-logo float-left' src={c.TV_LOGO} alt='logo' />
+          <h1 className='navbar-title float-left'>Tervy</h1>
+        </div>
         <ul className='text-right navbar-list'>
           <div>
             <li>Sign In</li>

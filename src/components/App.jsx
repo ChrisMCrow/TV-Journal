@@ -7,15 +7,14 @@ import PropTypes from 'prop-types';
 import { getGenres, getPopularShows, authListener, watchShowsRef } from '../actions';
 
 class App extends React.Component {
-
-  componentWillMount() {
+  constructor(props) {
+    super(props);
     const { dispatch } = this.props;
     dispatch(authListener());
     dispatch(getPopularShows());
     dispatch(getGenres());
-    dispatch(watchShowsRef());
   }
-  
+    
   render() {
     return (
       <div>

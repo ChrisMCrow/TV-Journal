@@ -11,10 +11,16 @@ const userReducer = (state = {}, action) => {
     newState.loginError = action.error;
     return newState;
   case c.ADD_SHOW:
-    console.log('user reducer activated');
-    newState.authUser[action.list][action.newShow.id] = action.newShow;
+    let newShowObject = {
+      [action.newShow.id]: action.newShow
+    }
+    if (!(newState[action.list])) {
+      newState[action.list] = newShowObject;
+    } else {
+      newState[action.list] = Object.assign(newState[action.list], newShowObject);
+    }
     return newState;
-  default:
+    default:
     return state;
   }
 }
