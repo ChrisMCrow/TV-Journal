@@ -12,7 +12,7 @@ const userReducer = (state = {}, action) => {
     return newState;
   case c.ADD_SHOW:
     let newShowObject = {
-      [action.newShow.id]: Object.assign({},action.newShow, { onList: true })
+      [action.newShow.id]: Object.assign({},action.newShow, { onList: false })
     }
     if (!(newState[action.list])) {
       newState[action.list] = newShowObject;

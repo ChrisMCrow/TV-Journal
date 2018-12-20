@@ -20,7 +20,7 @@ function ShowComponent(props) {
       {(props.show.hasOwnProperty('onList')) ? (
         <p onClick={() => deleteFromList(props.show.id, props.listTitle)} className='show-component-close'>&times;</p>
       ) : ( null )}
-      <p>{name}</p>
+      <p className='show-component-title'>{name}</p>
 
 
       {/* Modal */}

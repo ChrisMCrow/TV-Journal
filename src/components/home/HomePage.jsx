@@ -8,13 +8,13 @@ function HomePage(props) {
   return(
     <div className='home'>
       <div className='row'>
-        <div className='col'>
+        <div className='col-md-4'>
           <HomeMyActivity media={props.media} user={props.user} />
         </div>
-        <div className='col'>
+        <div className='col-md-4'>
           <HomeFeed />
         </div>
-        <div className='col'>
+        <div className='col-md-4'>
           <HomeTrends trending={props.media.trending} />
         </div>
       </div>

@@ -71,6 +71,12 @@ $text-color: white;
   }
   &-activity {
     @extend %section-container;
+
+    &-scrolling {
+      overflow-x: scroll;
+      overflow-y: hidden;
+      white-space: nowrap;
+    }
   }
   &-trends {
     @extend %section-container;
@@ -83,11 +89,13 @@ $text-color: white;
     display: inline-block;
     
     &-item {
-      float: left;
+      $width: 20%;
       min-width: 80px;
-      width: 16%;
+      display: inline-block;
+      width: 120px;
+      vertical-align: top;
+      height: 210px;
       margin: 10px 2%;
-      height: 215px;
 
       img {
         box-shadow: 2px 2px 5px black;
@@ -97,12 +105,18 @@ $text-color: white;
 
   &-component {
     text-align: center;
+    font-size: 16px;
     position: relative;
+    overflow-wrap: break-word !important;
   
     &-poster {
       width: 80%;
       min-width: 70px;
       cursor: pointer;
+    }
+
+    &-title {
+      white-space: normal;
     }
 
     &-close {
