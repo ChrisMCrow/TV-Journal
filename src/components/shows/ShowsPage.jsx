@@ -16,9 +16,7 @@ function ShowsPage(props) {
           <ShowsGenre genres={props.media.genres} dispatch={props.dispatch} onSelect={handleSelect} />
         </aside>
         <section className='col-md-9'>
-        <div className='shows-scroll-wrapper'>
           <ShowsScroll dispatch={props.dispatch} media={props.media} />
-        </div>
           <div className='card'>
             <div className='card-header shows-title' id='genre-title'>
               Trending

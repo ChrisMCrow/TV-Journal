@@ -13,7 +13,7 @@ function ShowSearch(props) {
   }
 
   return(
-    <nav className='show-search'>
+    <div className='show-search'>
       <form onSubmit={handleSearchSubmit}>
         <input
           className='form-control' 
@@ -22,7 +22,7 @@ function ShowSearch(props) {
           ref={searchQuery} 
         />
       </form>
-    </nav>
+    </div>
   );
 }
 

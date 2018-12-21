@@ -14,7 +14,7 @@ function ShowsScroll(props) {
   }
 
   return (
-    <nav className='shows-scroll'>
+    <div className='shows-scroll'>
       {props.media.filterQuery ? (
         <div>
           <img onClick={() => handlePageTurn(-1)} src={c.LEFT_ARROW} alt='left arrow' />
@@ -28,7 +28,7 @@ function ShowsScroll(props) {
           <img src={c.RIGHT_ARROW} alt='right arrow' />
         </div>
       )}
-    </nav>
+    </div>
   );
 }
 

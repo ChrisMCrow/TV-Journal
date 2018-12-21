@@ -67,7 +67,7 @@ $text-color: black;
 .app nav {
   position: sticky;
   top: 0;
-  z-index: 3;
+  z-index: 1;
 }
 
 .navbar {
@@ -235,9 +235,6 @@ $text-color: black;
 
 //Shows Page
 .shows {
-  &-scroll-wrapper {
-    z-index: -1;
-  }
 
   &-genre {
     @extend %section-container;
@@ -249,8 +246,8 @@ $text-color: black;
   }
 
   &-scroll {
-    z-index: -1;
     text-align: center;
+    z-index: 3;
     margin-bottom: -40px;
 
     &-number {
