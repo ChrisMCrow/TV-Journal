@@ -11,21 +11,7 @@ $muted-color: #F5F6F7;
 $light-color: white;
 $text-color: black;
 
-//Pastel
-// $primary-color: #e27d60;
-// $secondary-color: #e8a87c;
-// $background-color: #222629;
-// $muted-color: #474b4f;
-// $light-color: #6b6e70;
-// $text-color: white;
-
-//Light & Bright
 // $primary-color: #fc4a1a;
-// $secondary-color: #f7b733;
-// $background-color: #dfdce3;
-// $muted-color: #eeeef3;
-// $light-color: white;
-// $text-color: black;
 
 //Facebook
 // $primary-color: #4268B2;
@@ -81,7 +67,7 @@ $text-color: black;
 .app nav {
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 3;
 }
 
 .navbar {
@@ -125,12 +111,11 @@ $text-color: black;
     @extend %section-container;
   }
   &-activity {
-    position: sticky;
-    top: 105px;
+    top: -240px;
+    bottom: 300px;
     
     &-list {
       background-color: $muted-color;
-      // border-radius: 5px;
       margin-bottom: 20px;
     }
 
@@ -142,7 +127,6 @@ $text-color: black;
   }
 
   &-trends {
-    // @extend %section-container;
     margin-bottom: 30px;
   }
 }
@@ -184,12 +168,15 @@ $text-color: black;
       position: absolute;
       top: -10px;
       right: 1px;
-      color: $background-color;
-      background-color: $text-color;
+      color: lightgray;
       border-radius: 50px;
       height: 22px;
       width: 22px;
       cursor: pointer;
+    }
+
+    &-close:hover {
+      background-color: gray;
     }
   }
 
@@ -201,6 +188,9 @@ $text-color: black;
 
 //Show Details Modal
 .modal {
+  white-space: normal;
+  text-align: center;
+  
   .modal-content {
     background-color: $muted-color;
     width: 80vw;
@@ -220,6 +210,7 @@ $text-color: black;
 
       .modal-description {
         @extend %modal-background;
+        color: white;
         position: absolute;
         bottom: 0;
         left: 0;
@@ -244,8 +235,8 @@ $text-color: black;
 
 //Shows Page
 .shows {
-  #genre-title {
-    padding-top: 30px;
+  &-scroll-wrapper {
+    z-index: -1;
   }
 
   &-genre {
@@ -258,8 +249,9 @@ $text-color: black;
   }
 
   &-scroll {
+    z-index: -1;
     text-align: center;
-    margin-bottom: -50px;
+    margin-bottom: -40px;
 
     &-number {
       margin: 0 20px;
@@ -268,7 +260,7 @@ $text-color: black;
     img {
       cursor: pointer;
       display: inline-block;
-      width: 40px;
+      width: 30px;
     }
 
   }

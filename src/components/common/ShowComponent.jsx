@@ -12,24 +12,8 @@ function ShowComponent(props) {
   const backdrop = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
 
   return (
-    <figure className='show-component'>
-      {props.show.hasOwnProperty('onList') ? (
-        <div
-          onMouseEnter={() => dispatch(handleHover(props.show.id, props.listTitle, true))}
-          onMouseLeave={() => dispatch(handleHover(props.show.id, props.listTitle, false))}
-        >
-          <img
-            className='show-component-poster'
-            src={poster_path ? img : fallback}
-            alt='POSTER'
-            data-toggle="modal"
-            data-target={"#id" + id}
-          />
-          {props.show.onList ? (
-            <p onClick={() => deleteFromList(props.show.id, props.listTitle)} className='show-component-close'>&times;</p>
-          ) : (null)}
-        </div>
-      ) : (
+    <div>
+      <figure className='show-component'>
         <img
           className='show-component-poster'
           src={poster_path ? img : fallback}
@@ -37,12 +21,16 @@ function ShowComponent(props) {
           data-toggle="modal"
           data-target={"#id" + id}
         />
-      )}
-      <p className='show-component-title'>{name}</p>
+        {props.show.hasOwnProperty('onList') ? (
+          <p onClick={() => deleteFromList(props.show.id, props.listTitle)} className='show-component-close'>&times;</p>
+        ) : (null)}
+
+        <p className='show-component-title'>{name}</p>
+      </figure>
 
 
       {/* Modal */}
-      <article className="modal fade" id={"id" + id} tabIndex="-1" role="dialog" aria-labelledby={props.show.name + "-modal"} aria-hidden="true">
+      <div className="modal fade" id={"id" + id} tabIndex="-1" role="dialog" aria-labelledby={props.show.name + "-modal"} aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
           <div className="modal-content">
 
@@ -81,11 +69,10 @@ function ShowComponent(props) {
                 </div>
               </div>
             </footer>
-
           </div>
         </div>
-      </article>
-    </figure>
+      </div>
+    </div>
   );
 }
 

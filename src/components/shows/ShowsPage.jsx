@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ShowsGenre, ShowList, ShowsScroll } from './../../components';
+import { ShowsGenre, ShowList, ShowsScroll, ShowSearch } from './../../components';
 
 function ShowsPage(props) {
 
@@ -9,22 +9,27 @@ function ShowsPage(props) {
   }
 
   return (
-    <main>
+    <main className='shows'>
       <div className='row'>
         <aside className='col-md-3'>
+          <ShowSearch dispatch={props.dispatch} />
           <ShowsGenre genres={props.media.genres} dispatch={props.dispatch} onSelect={handleSelect} />
         </aside>
         <section className='col-md-9'>
+        <div className='shows-scroll-wrapper'>
+          <ShowsScroll dispatch={props.dispatch} media={props.media} />
+        </div>
           <div className='card'>
-            <div className='card-header'>
-              <ShowsScroll dispatch={props.dispatch} media={props.media} />
-            <h4 id='genre-title'>Trending</h4>
+            <div className='card-header shows-title' id='genre-title'>
+              Trending
             </div>
-            {props.media.selectedList ? (
-              <ShowList list={props.media.selectedList} />
-            ) : (
+            <div className='card-body'>
+              {props.media.selectedList ? (
+                <ShowList list={props.media.selectedList} />
+              ) : (
                 <ShowList list={props.media.trending} />
               )}
+            </div>
             <ShowsScroll dispatch={props.dispatch} media={props.media} />
           </div>
         </section>

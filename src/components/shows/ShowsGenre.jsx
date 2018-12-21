@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { discoverGenre } from './../../actions';
-import { ShowSearch } from './../../components';
 import v4 from 'uuid';
 
 function ShowsGenre(props) {
@@ -13,7 +12,6 @@ function ShowsGenre(props) {
 
   return(
     <aside className='shows-genre'>
-      <ShowSearch dispatch={props.dispatch} />
       <h3>Genres</h3>
       {props.genres ? (
         props.genres.map((genre) => (
