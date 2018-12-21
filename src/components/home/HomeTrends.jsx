@@ -4,8 +4,8 @@ import ShowList from './../common/ShowList';
 
 function HomeTrends(props) {
   return(
-    <div className='home-trends'>
-      <h1>Trending</h1>
+    <div className='home-trends card'>
+      <div className='card-header'>Trending</div>
       <ShowList list={props.trending}/>
     </div>
   );

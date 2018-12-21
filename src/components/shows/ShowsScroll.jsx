@@ -18,14 +18,14 @@ function ShowsScroll(props) {
       {props.media.filterQuery ? (
         <div>
           <img onClick={() => handlePageTurn(-1)} src={c.LEFT_ARROW} alt='left arrow' />
+          <span className='text-muted shows-scroll-number'>{props.media.page}</span>
           <img onClick={() => handlePageTurn(1)} src={c.RIGHT_ARROW} alt='right arrow' />
-          <p className='text-muted'>{props.media.page}</p>
         </div>
       ) : (
         <div style={{visibility: 'hidden'}}>
           <img src={c.LEFT_ARROW} alt='left arrow' />
+          <span className='text-muted'>1</span>
           <img src={c.RIGHT_ARROW} alt='right arrow' />
-          <p className='text-muted'>1</p>
         </div>
       )}
     </nav>

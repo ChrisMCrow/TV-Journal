@@ -15,14 +15,18 @@ function ShowsPage(props) {
           <ShowsGenre genres={props.media.genres} dispatch={props.dispatch} onSelect={handleSelect} />
         </aside>
         <section className='col-md-9'>
-          <ShowsScroll dispatch={props.dispatch} media={props.media} />
-          <h3 id='genre-title'>Trending</h3>
-          {props.media.selectedList ? (
-            <ShowList list={props.media.selectedList} />
-          ) : (
-            <ShowList list={props.media.trending} />
-          )}
-          <ShowsScroll dispatch={props.dispatch} media={props.media} />
+          <div className='card'>
+            <div className='card-header'>
+              <ShowsScroll dispatch={props.dispatch} media={props.media} />
+            <h4 id='genre-title'>Trending</h4>
+            </div>
+            {props.media.selectedList ? (
+              <ShowList list={props.media.selectedList} />
+            ) : (
+                <ShowList list={props.media.trending} />
+              )}
+            <ShowsScroll dispatch={props.dispatch} media={props.media} />
+          </div>
         </section>
       </div>
     </main>

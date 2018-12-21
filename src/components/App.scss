@@ -4,12 +4,12 @@
 $font-stack: 'Poppins', sans-serif;
 
 //Black & Green
-// $primary-color: #86c232;
-// $secondary-color: #61892f;
-// $background-color: #222629;
-// $muted-color: #474b4f;
-// $light-color: #6b6e70;
-// $text-color: white;
+$primary-color: #86c232;
+$secondary-color: #61892f;
+$background-color: #222629;
+$muted-color: #F5F6F7;
+$light-color: white;
+$text-color: black;
 
 //Pastel
 // $primary-color: #e27d60;
@@ -28,12 +28,12 @@ $font-stack: 'Poppins', sans-serif;
 // $text-color: black;
 
 //Facebook
-$primary-color: #4268B2;
-$secondary-color: #F5F6F7;
-$background-color: #E9EBEE;
-$muted-color: #F5F6F7;
-$light-color: white;
-$text-color: black;
+// $primary-color: #4268B2;
+// $secondary-color: #eeeef3;
+// $background-color: #E9EBEE;
+// $muted-color: #F5F6F7;
+// $light-color: white;
+// $text-color: black;
 
 /* width */
 ::-webkit-scrollbar {
@@ -134,11 +134,6 @@ $text-color: black;
       margin-bottom: 20px;
     }
 
-    h3 {
-      margin: 0 0 10px 10px;
-      padding-top: 10px;
-    }
-
     &-scrolling {
       overflow-x: scroll;
       overflow-y: hidden;
@@ -147,7 +142,8 @@ $text-color: black;
   }
 
   &-trends {
-    @extend %section-container;
+    // @extend %section-container;
+    margin-bottom: 30px;
   }
 }
 
@@ -249,7 +245,7 @@ $text-color: black;
 //Shows Page
 .shows {
   #genre-title {
-    margin: 0 0 20px 20px;
+    padding-top: 30px;
   }
 
   &-genre {
@@ -265,8 +261,15 @@ $text-color: black;
     text-align: center;
     margin-bottom: -50px;
 
+    &-number {
+      margin: 0 20px;
+    }
+
     img {
       cursor: pointer;
+      display: inline-block;
+      width: 40px;
     }
+
   }
 }
