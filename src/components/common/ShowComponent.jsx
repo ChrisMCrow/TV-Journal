@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import fallback from './../../assets/fallback.png';
-import { addToShows, deleteFromList, handleHover } from './../../actions';
+import { addToShows, deleteFromList } from './../../actions';
 import constants from './../../constants';
 const { c } = constants;
 

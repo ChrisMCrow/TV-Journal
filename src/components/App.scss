@@ -162,6 +162,7 @@ $text-color: black;
 
     &-title {
       white-space: normal;
+      margin-top: 8px;
     }
 
     &-close {
@@ -181,7 +182,7 @@ $text-color: black;
   }
 
   &-search {
-    margin: 15px 0;
+    margin: 0 0 15px 0;
   }
 }
 
@@ -236,6 +237,10 @@ $text-color: black;
 //Shows Page
 .shows {
 
+  &-card {
+    z-index: -1;
+  }
+
   &-genre {
     @extend %section-container;
     margin-top: 40px;
@@ -247,8 +252,8 @@ $text-color: black;
 
   &-scroll {
     text-align: center;
-    z-index: 3;
-    margin-bottom: -40px;
+    z-index: 1;
+    margin: 10px 0 -40px 0;
 
     &-number {
       margin: 0 20px;

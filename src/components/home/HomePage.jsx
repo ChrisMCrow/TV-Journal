@@ -1,6 +1,5 @@
 import React from 'react';
 import HomeMyActivity from './HomeMyActivity';
-import HomeFeed from './HomeFeed';
 import HomeTrends from './HomeTrends';
 import PropTypes from 'prop-types';
 

@@ -23,10 +23,6 @@ const userReducer = (state = {}, action) => {
   case c.REMOVE_SHOW:
     delete newState[action.list][action.showId];
     return newState;
-  // case c.TOGGLE_HOVER:
-  //   newState[action.listTitle][action.showId].onList = action.bool;
-  //   console.log(action.bool);
-  //   return newState;
   case c.CLEAR_USER:
     newState = Object.assign({}, {authUser: null});
     return newState;

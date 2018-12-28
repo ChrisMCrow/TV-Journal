@@ -17,8 +17,8 @@ function ShowsPage(props) {
         </aside>
         <section className='col-md-9'>
           <ShowsScroll dispatch={props.dispatch} media={props.media} />
-          <div className='card'>
-            <div className='card-header shows-title' id='genre-title'>
+          <div className='card shows-card'>
+            <div className='card-header' id='genre-title'>
               Trending
             </div>
             <div className='card-body'>

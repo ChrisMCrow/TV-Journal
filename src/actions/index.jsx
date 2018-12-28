@@ -164,15 +164,3 @@ export function deleteFromList(showId, listTitle) {
   DB.ref('users/' + uid + '/' + listTitle + '/' + showId).remove();
 }
 
-// X on Hover function
-// export function handleHover(showId, listTitle, bool) {
-//   return function (dispatch) {
-//     console.log(bool)
-//     dispatch({
-//       type: c.TOGGLE_HOVER,
-//       showId,
-//       listTitle,
-//       bool: bool
-//     });
-//   }
-// }
