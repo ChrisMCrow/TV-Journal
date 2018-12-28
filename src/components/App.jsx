@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import './App.scss';
-import { Navbar, Signin, HomePage, FriendsPage, ShowsPage } from './../components';
+import { Navbar, Signin, HomePage, FriendsPage, ShowsPage, Footer } from './../components';
 import PropTypes from 'prop-types';
 import { getGenres, getPopularShows, authListener } from '../actions';
 
@@ -39,6 +39,9 @@ class App extends React.Component {
                 />
               </Switch>
           </div>
+          <footer>
+            <Footer />
+          </footer>
         </div>
       );
     } else {
@@ -50,6 +53,9 @@ class App extends React.Component {
           <div className='container'>
             <Signin user={this.props.user} dispatch={this.props.dispatch}/>
           </div>
+          <footer>
+            <Footer />
+          </footer>
         </div>
       );
     }

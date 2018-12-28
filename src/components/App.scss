@@ -2,8 +2,6 @@
 
 
 $font-stack: 'Poppins', sans-serif;
-
-//Black & Green
 $primary-color: #86c232;
 $secondary-color: #61892f;
 $background-color: #222629;
@@ -11,38 +9,28 @@ $muted-color: #F5F6F7;
 $light-color: white;
 $text-color: black;
 
-// $primary-color: #fc4a1a;
 
-//Facebook
-// $primary-color: #4268B2;
-// $secondary-color: #eeeef3;
-// $background-color: #E9EBEE;
-// $muted-color: #F5F6F7;
-// $light-color: white;
-// $text-color: black;
-
-/* width */
+//Scroll Styles
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
-}
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: $light-color; 
-}
+  &-track {
+    background: $light-color; 
+  }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: $secondary-color; 
-}
+  &-thumb {
+    background: $secondary-color;
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: $primary-color; 
+    &:hover {
+      background: $primary-color;
+    }
+  }
 }
 
 #htmlBody {
+  height: 100%;
+  margin: 0;
   font-family: $font-stack;
   background-color: $background-color;
   color: $text-color;
@@ -61,6 +49,11 @@ $text-color: black;
   background-color: $primary-color;
   padding: 30px;
   color: $background-color;
+}
+
+//Keeps footer at bottom of page
+.container {
+  min-height: calc(100vh - 350px);
 }
 
 //Top Navbar
@@ -99,6 +92,11 @@ $text-color: black;
 
         &:hover {
           color: $muted-color;
+          text-decoration: none;
+          background-color: $secondary-color;
+          padding: 10px;
+          margin: 0 -10px;
+          border-radius: 5px;
         }       
       }
     }
@@ -237,10 +235,6 @@ $text-color: black;
 //Shows Page
 .shows {
 
-  &-card {
-    z-index: -1;
-  }
-
   &-genre {
     @extend %section-container;
     margin-top: 40px;
@@ -252,7 +246,6 @@ $text-color: black;
 
   &-scroll {
     text-align: center;
-    z-index: 1;
     margin: 10px 0 -40px 0;
 
     &-number {
@@ -264,6 +257,17 @@ $text-color: black;
       display: inline-block;
       width: 30px;
     }
-
   }
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: $primary-color;
+  color: $text-color;
+  margin-top: 120px;
+  border-top: 1px solid black;
+  padding: 5px;
 }

@@ -12,5 +12,6 @@ import HomeTrends from './home/HomeTrends';
 import ShowsGenre from './shows/ShowsGenre';
 import ShowsPage from './shows/ShowsPage';
 import ShowsScroll from './shows/ShowsScroll';
+import Footer from './Footer';
 
-export { App, Navbar, Signin, ShowComponent, ShowList, ShowSearch, FriendsPage, HomeFeed, HomeMyActivity, HomePage, HomeTrends, ShowsGenre, ShowsPage, ShowsScroll }
+export { App, Navbar, Signin, ShowComponent, ShowList, ShowSearch, FriendsPage, HomeFeed, HomeMyActivity, HomePage, HomeTrends, ShowsGenre, ShowsPage, ShowsScroll, Footer }
