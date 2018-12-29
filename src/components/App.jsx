@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { Redirect, Switch, Route, withRouter } from 'react-router-dom';
 import './App.scss';
 import { Navbar, Signin, Signup, HomePage, FriendsPage, ShowsPage, Footer } from './../components';
 import PropTypes from 'prop-types';
@@ -36,6 +36,12 @@ class App extends React.Component {
                 <Route
                   path='/shows'
                   render={() => <ShowsPage media={this.props.media} dispatch={this.props.dispatch} />}
+                />
+                <Route 
+                  path='/newaccount'
+                  render={() =>
+                    <Redirect to='/' />
+                  }
                 />
               </Switch>
           </div>

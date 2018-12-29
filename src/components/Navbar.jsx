@@ -16,7 +16,7 @@ function Navbar(props) {
         </div>
         <ul className='text-right navbar-list'>
           <div>
-            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/'>{props.user.firstName}</Link></li>
             {/* <li><Link to='/friends'>Friends</Link></li> */}
             <li><Link to='/shows'>Shows</Link></li>
             <li onClick={() => props.dispatch(logout())}><Link to='/'>Sign Out</Link></li>

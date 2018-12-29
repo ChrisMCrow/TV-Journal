@@ -6,6 +6,7 @@ const userReducer = (state = {}, action) => {
   switch (action.type) {
   case c.SET_USER: 
     newState.authUser = action.authUser;
+    newState.firstName = action.firstName;
     return newState;
   case c.LOG_ERROR:
     newState.loginError = action.error;

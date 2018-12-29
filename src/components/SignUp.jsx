@@ -20,7 +20,7 @@ function SignUp(props) {
 
   return (
     <section className='signin'>
-      <h1>Create a New Account</h1>
+      <h1>Create an Account</h1>
       <form onSubmit={handleFormSubmit}>
         <div className='form-group'>
           <label>Email:</label>

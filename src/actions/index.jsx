@@ -78,17 +78,22 @@ export function searchTV(query, pageNumber = 1) {
 firebase.initializeApp(firebaseConfig);
 const DB = firebase.database();
 let uid;
+let firstName;
 
 export function authListener() {
   return function (dispatch) {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         uid = firebase.auth().currentUser.uid;
-        watchShowsRef(dispatch);
-        dispatch({
-          type: c.SET_USER,
-          authUser: firebase.auth().currentUser.uid
+        DB.ref('users/' + uid + '/firstName').on('value',(snapshot) => {
+          firstName = snapshot.val();
+          dispatch({
+            type: c.SET_USER,
+            authUser: firebase.auth().currentUser.uid,
+            firstName
+          });
         });
+        watchShowsRef(dispatch);
       } else {
         uid = null;
         dispatch({

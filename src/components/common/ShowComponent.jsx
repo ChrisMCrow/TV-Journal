@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import fallback from './../../assets/fallback.png';
 import { addToShows, deleteFromList } from './../../actions';
-import constants from './../../constants';
-const { c } = constants;
+// import constants from './../../constants';
+// const { c } = constants;
 
 function ShowComponent(props) {
   const { name, id, poster_path, backdrop_path, overview, popularity, first_air_date } = props.show;
-  const { dispatch } = props;
+  // const { dispatch } = props;
   const img = `https://image.tmdb.org/t/p/w500/${poster_path}`;
   const backdrop = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
 
