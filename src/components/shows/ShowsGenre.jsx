@@ -11,22 +11,24 @@ function ShowsGenre(props) {
   }
 
   return(
-    <aside className='shows-genre'>
-      <h3>Genres</h3>
-      {props.genres ? (
-        props.genres.map((genre) => (
-          <p 
-            onClick={() => handleGenreSelection(genre.id, genre.name)} 
-            className='shows-genre-list' 
-            id={'id' + genre.id} 
-            key={v4()}
-          >
-            {genre.name}
-          </p>
-        ))
-      ) : (
-        null
-      )}
+    <aside className='shows-genre card'>
+      <div className='card-header'>Genres</div>
+      <div className='card-body'>
+        {props.genres ? (
+          props.genres.map((genre) => (
+            <p 
+              onClick={() => handleGenreSelection(genre.id, genre.name)} 
+              className='shows-genre-list' 
+              id={'id' + genre.id} 
+              key={v4()}
+            >
+              {genre.name}
+            </p>
+          ))
+        ) : (
+          null
+        )}
+      </div>
     </aside>
   );
 }

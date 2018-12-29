@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import './App.scss';
-import { Navbar, Signin, HomePage, FriendsPage, ShowsPage, Footer } from './../components';
+import { Navbar, Signin, Signup, HomePage, FriendsPage, ShowsPage, Footer } from './../components';
 import PropTypes from 'prop-types';
 import { getGenres, getPopularShows, authListener } from '../actions';
 
@@ -51,7 +51,14 @@ class App extends React.Component {
             <Navbar user={this.props.user} dispatch={this.props.dispatch} />
           </nav>
           <div className='container'>
-            <Signin user={this.props.user} dispatch={this.props.dispatch}/>
+            <Switch>
+              <Route exact path='/' render={() =>
+                <Signin user={this.props.user} dispatch={this.props.dispatch}/>
+              }/>
+              <Route path='/newaccount' render={() =>
+                <Signup user={this.props.user} dispatch={this.props.dispatch}/>
+              }/>
+            </Switch>
           </div>
           <footer>
             <Footer />

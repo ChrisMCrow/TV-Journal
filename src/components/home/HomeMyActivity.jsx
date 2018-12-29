@@ -6,7 +6,7 @@ function HomeMyActivity(props) {
   return (
     <div className='home-activity'>
       <section className='home-activity-list card'>
-      <div className='card-header'>Currently Watching</div>
+        <div className='card-header'>Currently Watching</div>
         <div className='home-activity-scrolling'>
           <ShowList list={props.user.watching} listTitle='watching' dispatch={props.dispatch}/>
         </div>

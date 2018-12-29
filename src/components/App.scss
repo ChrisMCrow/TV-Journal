@@ -236,7 +236,6 @@ $text-color: black;
 .shows {
 
   &-genre {
-    @extend %section-container;
     margin-top: 40px;
 
     &-list {

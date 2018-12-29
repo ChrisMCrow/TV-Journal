@@ -5,7 +5,7 @@ import { ShowsGenre, ShowList, ShowsScroll, ShowSearch } from './../../component
 function ShowsPage(props) {
 
   function handleSelect(genreName) {
-    document.getElementById('genre-title').innerHTML = genreName;
+    sessionStorage.setItem('genreName', genreName);
   }
 
   return (
@@ -13,13 +13,27 @@ function ShowsPage(props) {
       <div className='row'>
         <aside className='col-md-3'>
           <ShowSearch dispatch={props.dispatch} />
-          <ShowsGenre genres={props.media.genres} dispatch={props.dispatch} onSelect={handleSelect} />
+          <ShowsGenre 
+            genres={props.media.genres} 
+            dispatch={props.dispatch} 
+            onSelect={handleSelect} 
+          />
         </aside>
         <section className='col-md-9'>
           <div className='card shows-card'>
-            <ShowsScroll dispatch={props.dispatch} media={props.media} />
-            <div className='card-header' id='genre-title'>
-              Trending
+            <ShowsScroll 
+              dispatch={props.dispatch} 
+              media={props.media} 
+            />
+            <div 
+              className='card-header' 
+              id='genre-title'
+            >
+              {sessionStorage.getItem('genreName') ? (
+                sessionStorage.getItem('genreName')
+              ) : (
+                'Trending'
+              )}
             </div>
             <div className='card-body'>
               {props.media.selectedList ? (
@@ -28,7 +42,10 @@ function ShowsPage(props) {
                 <ShowList list={props.media.trending} />
               )}
             </div>
-            <ShowsScroll dispatch={props.dispatch} media={props.media} />
+            <ShowsScroll 
+              dispatch={props.dispatch} 
+              media={props.media} 
+            />
           </div>
         </section>
       </div>
