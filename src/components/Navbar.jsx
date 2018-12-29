@@ -33,8 +33,8 @@ function Navbar(props) {
         </div>
         <ul className='text-right navbar-list'>
           <div>
-            <li><Link to='/'>Sign In</Link></li>
-            <li><Link to='/newaccount'>Create Account</Link></li>
+            {/* <li><Link to='/'>Sign In</Link></li>
+            <li><Link to='/newaccount'>Create Account</Link></li> */}
           </div>
         </ul>
       </div>

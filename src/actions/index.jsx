@@ -119,7 +119,6 @@ function watchShowsRef(dispatch) {
         showId: data.key
       });
     });
-
   })
 }
 
@@ -134,12 +133,20 @@ export function login(email, password, dispatch) {
     });
 }
 
-export function signup(signupEmail, password, dispatch) {
+export function signup(signupEmail, password, firstName, lastName, dispatch) {
   firebase.auth().createUserWithEmailAndPassword(signupEmail, password)
     .then(() => {
-      // uid = firebase.auth().currentUser.uid;
-      DB.ref('users').child(uid).set({ "email": signupEmail });
-    }).catch((error) => {
+      uid = firebase.auth().currentUser.uid;
+      console.log('try: ', uid);
+      DB.ref('users/' + uid).set({ 
+        "email": signupEmail, 
+        "firstName": firstName, 
+        "lastName": lastName 
+      });
+    })
+    .catch((error) => {
+      uid = firebase.auth().currentUser.uid;
+      console.log('catch: ', uid);
       dispatch({
         type: c.LOG_ERROR,
         error: error.message
