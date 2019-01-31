@@ -1,5 +1,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# TERVY: A TV Journal
+
+See the deployed version of the site [here](https://chrismcrow.github.io/TV-Journal "gh-pages").
+
+You can create an account or use this dummy account:
+user email: dummy@gmail.com
+password: dummy123
+
+
 ## Available Scripts
 
 In the project directory, you can run:
